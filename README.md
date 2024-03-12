@@ -21,20 +21,12 @@ Welcome to TiffinBox, your go-to Next.js app for a seamless and efficient experi
 Meet the talented individuals behind TiffinBox:
 
 1. **Aswathy Krishna**
-   - *Role:* UI/UX Designer
-   - *Responsibilities:* Designing the user interface for an intuitive and visually appealing experience.
-
+   
 2. **Bimal Devasia**
-   - *Role:* Front-end Developer
-   - *Responsibilities:* Implementing the user interface designs and ensuring a smooth interaction flow.
 
 3. **Devadarsh M R**
-   - *Role:* Back-end Developer
-   - *Responsibilities:* Building the backend infrastructure, handling data storage, and managing order processing.
 
 4. **Yamuna Jayakumar**
-   - *Role:* QA and Testing
-   - *Responsibilities:* Ensuring the app's functionality, usability, and security through rigorous testing.
 
 ## Installation Guide
 
