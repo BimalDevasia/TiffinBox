@@ -42,11 +42,19 @@ ipsum industry</p>
 
           </div >
 
-            <div className='flex flex-col w-7/12 gap-10'>
-              <input className='h-20 bg-ingrey px-[3rem]' placeholder='Email or phone Number' type="text" name="" id="" />
-              <input className='h-20 bg-ingrey px-[3rem]' type="text" name="" id="" />
-              <input className='h-20 bg-ingrey px-[3rem]' type="text" name="" id="" />
+            <div className='flex  flex-col w-7/12 gap-10'>
 
+              <input className='h-20 focus:outline-none placeholder:focus:absolute placeholder:focus:top-[-5px]  bg-ingrey px-[3rem] rounded-lg' placeholder='Email or phone Number' type="text" name="" id="" />
+
+              <div className='relative'>
+              <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type="password" name="" id="" />
+                <img className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src="/Lock.svg" alt="" />
+              </div>
+
+              <div className='relative'>
+              <input className='h-20 focus:outline-none w-full bg-ingrey px-[3rem] rounded-lg' placeholder='Confirm Password' type="password " name="" id="" />
+              <img className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src="/Lock.svg" alt="" />
+              </div>
               <div className='flex gap-5'>
 <input type="checkbox" name="" id="" /> <p>I agree to the <span>terms and conditions</span></p>
               </div>
@@ -54,8 +62,7 @@ ipsum industry</p>
             <div className='flex justify-between'>
               <button className='bg-inyellow w-[10rem] text-black  h-[4.5rem]'>LOGIN</button>
               <div className='relative'>
-                <p>Do you already have an <br />
-account? Please use the </p>
+                <p>Do you already have an <br />account? Please use the </p>
               <a className='absolute right-0 text-inyellow' href="">Login</a>
                 </div>
             </div>
