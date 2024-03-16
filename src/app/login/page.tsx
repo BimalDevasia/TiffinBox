@@ -34,7 +34,7 @@ const Login = () => {
         <img className="z-1" src="" alt="Not Working  " />
         <div className='flex absolute gap- items-center bottom-48'>
           <h1 className='text-8xl bg-gradient-to-b from-white to to-black text-transparent bg-clip-text font-bold font-bebasneue'>01</h1>
-          <p className='text-white font-semibold font-bebasneue'>"GOOD FOOD IS THE FOUNDATION <br/> OF GENUINE HAPPINESS"</p>
+          <p className='text-white font-semibold font-bebasneue'>GOOD FOOD IS THE FOUNDATION <br/> OF GENUINE HAPPINESS</p>
         </div>
       </div>
 
@@ -62,8 +62,7 @@ const Login = () => {
           <div className='w-1/3'>
 
           <h6 className='text-2xl mb-3 font-bebasneue'>WELCOME</h6>
-          <p className='text-5xl font-bebasneue'>is simply dummy <br /> text of the <br />printing and lorem <br />
-ipsum industry</p>
+          <p className='text-5xl font-bebasneue'>is simply dummy <br /> text of the <br />printing and lorem <br />ipsum industry</p>
 
           </div >
 
