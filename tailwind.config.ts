@@ -17,6 +17,9 @@ const config: Config = {
       colors:{
         'ingrey':'#424242',
         'inyellow':'#F5C000',
+      },
+      fontFamily:{
+        'bebasneue':'"Bebas Neue", sans-serif',
       }
     },
   },
