@@ -5,8 +5,7 @@ export default function Home() {
     <>
   <div>hello</div>
   <Link href="/login">
-  <a>Go to Specific Route</a>
-</Link>
+<button className="bg-inyellow">Sign Up</button></Link>
     </>
   );
 }
