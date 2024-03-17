@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 const Login = () => {
@@ -29,10 +30,10 @@ const Login = () => {
     <div className='h-screen w-full relative flex bg-black font-bebasneue'>
 
 
-      <div className='bg-food relative bg-no-repeat w-[28%] h-full'>
+      <div className='bg-food  relative bg-no-repeat w-[28%] h-full'>
         <div className='absolute h-full w-full bg-gradient-to-b from-[rgb(0,0,0,0.9)] to-[rgb(0,0,0,0.2)]'></div>
         <Image className="z-1" src="" alt="Not Working  " />
-        <div className='flex absolute gap- items-center bottom-48'>
+        <div className='flex  absolute gap- items-center bottom-48'>
           <h1 className='text-8xl bg-gradient-to-b from-white to to-black text-transparent bg-clip-text font-bold font-bebasneue'>01</h1>
           <p className='text-white font-semibold font-bebasneue'>GOOD FOOD IS THE FOUNDATION <br/> OF GENUINE HAPPINESS</p>
         </div>
@@ -46,10 +47,10 @@ const Login = () => {
         <div className='flex w-9/12 items-center justify-between text-inyellow mb-[5rem]'>
           
           <div className='flex gap-3'>
-          <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>
-            Sign up
-          </div>
-          <div className='flex w-24 h-14 justify-center cursor-pointer items-center hover:bg-ingrey hover:rounded-md hover:text-white text-[17px]'>Sign in</div>
+          <Link href="register">
+          <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md hover:bg-ingrey hover:text-white text-[17px]'>Sign up
+          </div></Link>
+          <div className='flex w-24 h-14 justify-center cursor-pointer rounded-md items-center bg-ingrey text-white  text-[17px]'>Sign in</div>
           </div>
           <div className='flex gap-3'>
           <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>User</div>
@@ -57,7 +58,7 @@ const Login = () => {
           </div>
           </div>
 
-          <div className='flex w-9/12 justify-between mb-[8rem] '>
+          <div className='flex w-9/12 justify-between mb-[15.5rem] '>
 
           <div className='w-1/3'>
 
@@ -75,11 +76,7 @@ const Login = () => {
                 <Image onClick={toggle1} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src="/Lock.svg" alt="" />
               </div>
 
-              <div className='relative'>
-              <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Confirm Password' type={`${pass2}`} name="" id="password2" />
-
-              <Image onClick={toggle2}  width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src="/Lock.svg" alt="" />
-              </div>
+              
               <div className='flex gap-5'>
               <input className="w-6 accent-ingrey focus:outline-none cursor-pointer" type="checkbox" name="" id="" required /> <a href=""><p className='text-[20px]'>I agree to the <span className='text-inyellow'>terms and conditions</span></p></a>
               </div>

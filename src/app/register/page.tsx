@@ -32,7 +32,7 @@ const Register = () => {
                         <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>
                             Sign up
                         </div>
-                        <div className='flex w-24 h-14 justify-center cursor-pointer items-center hover:bg-ingrey hover:rounded-md hover:text-white text-[17px]'>Sign in</div>
+                        <Link href="login"><div className='flex w-24 h-14 justify-center cursor-pointer items-center hover:bg-ingrey hover:rounded-md hover:text-white text-[17px]'>Sign in</div></Link>
                     </div>
                     <div className='flex gap-3'>
                         <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>User</div>
@@ -40,7 +40,7 @@ const Register = () => {
                     </div>
                 </div>
 
-                <div className='flex w-9/12 justify-between mb-[8rem] '>
+                <div className='flex w-9/12 justify-between mb-[0.5rem] '>
                     <div className='w-1/3'>
                         <h6 className='text-2xl mb-3 font-bebasneue'>WELCOME</h6>
                         <p className='text-5xl font-bebasneue'>is simply dummy <br /> text of the <br />printing and lorem <br />ipsum industry</p>
