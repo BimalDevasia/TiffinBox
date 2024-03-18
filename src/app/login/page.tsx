@@ -41,10 +41,10 @@ const Login = () => {
 
 
 
-      <div className='flex flex-col items-center justify-center absolute top-0 right-0 w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
+      <div className='flex flex-col items-center gap-20 absolute top-0 right-0 w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
 
 
-        <div className='flex w-9/12 items-center justify-between text-inyellow mb-[5rem]'>
+        <div className='flex w-9/12 items-center justify-between pt-24 text-inyellow '>
           
           <div className='flex gap-3'>
           <Link href="register">
@@ -58,7 +58,7 @@ const Login = () => {
           </div>
           </div>
 
-          <div className='flex w-9/12 justify-between mb-[15.5rem] '>
+          <div className='flex w-9/12 justify-between  '>
 
           <div className='w-1/3'>
 
