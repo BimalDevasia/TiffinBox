@@ -30,7 +30,7 @@ const Login = () => {
     <div className='h-screen w-full relative flex bg-black font-bebasneue'>
 
 
-      <div className='bg-food  relative bg-no-repeat w-[28%] h-full'>
+      <div className='bg-food avg:block hidden relative bg-no-repeat w-[28%] h-full'>
         <div className='absolute h-full w-full bg-gradient-to-b from-[rgb(0,0,0,0.9)] to-[rgb(0,0,0,0.2)]'></div>
         <Image className="z-1" src="" alt="Not Working  " />
         <div className='flex  absolute gap- items-center bottom-48'>
@@ -41,7 +41,7 @@ const Login = () => {
 
 
 
-      <div className='flex flex-col items-center gap-20 absolute top-0 right-0 w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
+      <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-full avg:w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
 
 
         <div className='flex w-9/12 items-center justify-between pt-24 text-inyellow '>
@@ -60,14 +60,14 @@ const Login = () => {
 
           <div className='flex w-9/12 justify-between  '>
 
-          <div className='w-1/3'>
+          <div className='w-1/3 hidden med:block'>
 
           <h6 className='text-2xl mb-3 font-bebasneue'>WELCOME</h6>
           <p className='text-5xl font-bebasneue'>is simply dummy <br /> text of the <br />printing and lorem <br />ipsum industry</p>
 
           </div >
 
-            <form  className='flex  flex-col w-7/12 gap-10'>
+            <form  className='flex  flex-col med:w-7/12 w-full gap-10'>
              
               <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type="text" name="" id="email" required />
               

@@ -20,6 +20,10 @@ const config: Config = {
       },
       fontFamily:{
         'bebasneue':'"Bebas Neue", sans-serif',
+      },
+      screens:{
+        'avg':'1098px',
+        'med':'824px'
       }
     },
   },
