@@ -44,7 +44,7 @@ const Login = () => {
       <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-full avg:w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
 
 
-        <div className='flex w-9/12 items-center justify-between pt-24 text-inyellow '>
+        <div className='flex w-9/12 items-center justify-between pt-12 text-inyellow '>
           
           <div className='flex gap-3'>
           <Link href="register">

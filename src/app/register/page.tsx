@@ -27,7 +27,7 @@ const Register = () => {
             </div>
 
             <div className='flex flex-col items-center absolute gap-20 top-0 right-0 w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
-                <div className='flex w-9/12 items-center justify-between pt-24 text-inyellow    '>
+                <div className='flex w-9/12 items-center justify-between pt-8 text-inyellow    '>
                     <div className='flex gap-3'>
                         <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>
                             Sign up
@@ -48,27 +48,27 @@ const Register = () => {
 
                     <form className='flex flex-col w-7/12 gap-10'>
                         {/* Name field */}
-                        <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Name' type='text' name='name' id='name' required />
+                        <input className='h-16 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Name' type='text' name='name' id='name' required />
 
-                        <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type='text' name='email' id='email' required />
+                        <input className='h-16 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type='text' name='email' id='email' required />
 
                         <div className='relative'>
-                            <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={showPassword1 ? 'text' : 'password'} name='password1' id='password1' />
+                            <input className='h-16 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={showPassword1 ? 'text' : 'password'} name='password1' id='password1' />
                             <Image onClick={togglePasswordVisibility1} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src='/Lock.svg' alt='Toggle Password Visibility' />
                         </div>
 
                         <div className='relative'>
-                            <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Confirm Password' type={showPassword2 ? 'text' : 'password'} name='password2' id='password2' />
+                            <input className='h-16 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Confirm Password' type={showPassword2 ? 'text' : 'password'} name='password2' id='password2' />
                             <Image onClick={togglePasswordVisibility2} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src='/Lock.svg' alt='Toggle Password Visibility' />
                         </div>
 
                         <div className='flex gap-5'>
-                            <input className='w-6 accent-ingrey focus:outline-none cursor-pointer' type='checkbox' name='terms' id='terms' required />
+                            <input className='w-4 accent-ingrey focus:outline-none cursor-pointer' type='checkbox' name='terms' id='terms' required />
                             <label htmlFor='terms'><p className='text-[20px]'>I agree to the <span className='text-inyellow'>terms and conditions</span></p></label>
                         </div>
 
                         <div className='flex justify-between'>
-                            <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black  h-[4.5rem] font-bold text-[20px]'>SIGN UP</button>
+                            <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black  h-16 font-bold text-[20px]'>SIGN UP</button>
                             <div className='relative'>
                                 {/* Link to navigate to a dummy component */}
                                 <Link href="/login"><p className='text-[17px]'>Do you already have an <br />account? Please use the </p><p className='absolute right-0 text-inyellow'>Login</p></Link>
