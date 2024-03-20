@@ -27,7 +27,7 @@ const Register = () => {
             </div>
 
             <div className='flex flex-col items-center absolute gap-20 top-0 right-0 w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
-                <div className='flex w-9/12 items-center justify-between pt-8 text-inyellow    '>
+                <div className='flex w-9/12 items-center justify-between pt-6 text-inyellow    '>
                     <div className='flex gap-3'>
                         <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>
                             Sign up
