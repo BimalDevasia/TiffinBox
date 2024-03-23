@@ -41,20 +41,20 @@ const Login = () => {
 
 
 
-      <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-full avg:w-[79%] h-full rounded-3xl bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
+      <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-screen avg:w-[79%] h-screen rounded-3xl bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
 
 
-        <div className='flex w-9/12 items-center justify-between pt-12 text-inyellow '>
+        <div className='flex avg:w-9/12 w-[50%] items-center justify-between pt-12 text-inyellow '>
           
           <div className='flex gap-3'>
           <Link href="register">
-          <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md hover:bg-ingrey hover:text-white text-[17px]'>Sign up
+          <div className='flex med:w-24 w-10 med:h-14 h-10 justify-center cursor-pointer items-center rounded-md hover:bg-ingrey hover:text-white med:text-[17px] text-[10px]'>Sign up
           </div></Link>
-          <div className='flex w-24 h-14 justify-center cursor-pointer rounded-md items-center bg-ingrey text-white  text-[17px]'>Sign in</div>
+          <div className='flex med:w-24 w-10 med:h-14 h-10 justify-center cursor-pointer rounded-md items-center bg-ingrey text-white  med:text-[17px] text-[10px]'>Sign in</div>
           </div>
           <div className='flex gap-3'>
-          <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>User</div>
-          <div className='flex w-24 h-14 justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white text-[17px]'>Admin</div>
+          <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center rounded-md bg-ingrey text-white med:text-[17px] text-[10px]'>User</div>
+          <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white med:text-[17px] text-[10px]'>Admin</div>
           </div>
           </div>
 
