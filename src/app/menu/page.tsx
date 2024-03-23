@@ -36,10 +36,10 @@ function page() {
 <style>
 
 
-  /* IE, Edge */
+ 
   -ms-overflow-style: none;
 
-  /* Firefox */
+
   scrollbar-width: none;
 
 </style>
