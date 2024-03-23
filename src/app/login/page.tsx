@@ -30,7 +30,7 @@ const Login = () => {
     <div className='h-screen w-full relative flex bg-black font-bebasneue'>
 
 
-      <div className='bg-food avg:block hidden relative bg-no-repeat w-[28%] h-full'>
+      <div className='bg-food avg:block hidden relative bg-cover bg-no-repeat w-[28%] h-full'>
         <div className='absolute h-full w-full bg-gradient-to-b from-[rgb(0,0,0,0.9)] to-[rgb(0,0,0,0.2)]'></div>
         <Image className="z-1" src="" alt="Not Working  " />
         <div className='flex  absolute gap- items-center bottom-48'>
@@ -41,7 +41,7 @@ const Login = () => {
 
 
 
-      <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-full avg:w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
+      <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-full avg:w-[79%] h-full rounded-3xl bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
 
 
         <div className='flex w-9/12 items-center justify-between pt-12 text-inyellow '>
