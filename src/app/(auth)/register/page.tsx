@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Import Link from next.js to handle navigation
+import Link from 'next/link';
 
 const Register = () => {
     const [showPassword1, setShowPassword1] = useState(false);
@@ -47,7 +47,6 @@ const Register = () => {
                     </div>
 
                     <form className='flex flex-col w-7/12 gap-10'>
-                        {/* Name field */}
                         <input className='h-16 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Name' type='text' name='name' id='name' required />
 
                         <input className='h-16 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type='text' name='email' id='email' required />
@@ -70,8 +69,7 @@ const Register = () => {
                         <div className='flex justify-between'>
                             <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black  h-16 font-bold text-[20px]'>SIGN UP</button>
                             <div className='relative'>
-                                {/* Link to navigate to a dummy component */}
-                                <Link href="/login"><p className='text-[17px]'>Do you already have an <br />account? Please use the </p><p className='absolute right-0 text-inyellow'>Login</p></Link>
+                                <Link href="/login"><p className='text-[17px]'>Do you already have an <br />account? Please use the </p><p className='absolute left-0 text-inyellow'>Login</p></Link>
                             </div>
                         </div>
                     </form>
