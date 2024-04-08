@@ -79,7 +79,7 @@ const Login = () => {
             <div className='flex justify-between'>
               <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black  h-[4.5rem] font-bold text-[20px]'>SIGN IN</button>
               <div className='relative'>
-                <p className='text-[17px]'>Don't have an account yet?<br />Sign up now!</p>
+                <p className='text-[17px]'>Don&apos;t have an account yet?<br />Sign up now!</p>
                 <Link href="/register"><p className='absolute left-0 text-inyellow'>Register</p></Link>
               </div>
             </div>
