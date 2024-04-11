@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { Poppins } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"],variable:"--poppins",weight:"800"});
+
 
 export const metadata: Metadata = {
   title: "Tiffin Box",
@@ -19,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`inter.className,${poppins.variable}`}>{children}</body>
     </html>
   );
 }

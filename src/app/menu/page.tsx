@@ -1,23 +1,19 @@
 import React from 'react'
-
+import items from "./data"
 
 const foodtype=["BREAKFAST","LUNCH","SNACKS","DINNER","DRINKS"]
-const items=[{name:"BREAD OMLET",desp:"A bread omelet is a quick and satisfying dish made by sandwiching beaten eggs between slices of bread Seasoned to taste and optionally filled with vegetables or cheese, it a versatile meal perfect for breakfast, brunch, or a light dinner.",price:"40",link:"/item.png"},
-{name:"BREAD OMLET",desp:"A bread omelet is a quick and satisfying dish made by sandwiching beaten eggs between slices of bread Seasoned to taste and optionally filled with vegetables or cheese, it a versatile meal perfect for breakfast, brunch, or a light dinner.",price:"40",link:"/item.png"},
-{name:"BREAD OMLET",desp:"A bread omelet is a quick and satisfying dish made by sandwiching beaten eggs between slices of bread Seasoned to taste and optionally filled with vegetables or cheese, it a versatile meal perfect for breakfast, brunch, or a light dinner.",price:"40",link:"/item.png"},
-{name:"BREAD OMLET",desp:"A bread omelet is a quick and satisfying dish made by sandwiching beaten eggs between slices of bread Seasoned to taste and optionally filled with vegetables or cheese, it a versatile meal perfect for breakfast, brunch, or a light dinner.",price:"40",link:"/item.png"}
-]
+
 
 
 function page() {
   return (
     
     <div className='flex flex-col items-center w-screen bg-no-repeat bg-cover h-screen bg-menu text-white'>
-
-      <h1>Our Menu</h1>
-      <div className='flex w-2/3 h-10 justify-center gap-5'>
+      <div className='absolute h-full w-full bg-black -z-10 opacity-75'></div>
+      <h1 className='font-poppins font-extrabold text-[40px] mt-3 mb-5'>Our Menu</h1>
+      <div className='flex w-2/3 h-10 justify-center gap-5 mb-9'>
       { foodtype.map((items,id)=>(
-        <div className=' flex justify-center items-center w-[10rem] rounded-3xl border-solid border-inyellow  border-[1px]' key={id}>{items}</div>
+        <div className=' flex justify-center items-center w-[10rem] hover:bg-inyellow hover:text-black rounded-3xl border-solid border-inyellow  border-[1px]' key={id}>{items}</div>
         ))}
       </div>
 
@@ -25,24 +21,15 @@ function page() {
           
         {items.map((item,id)=>(
           <div key={id} className='box flex w-full '>
-            <div style={{ backgroundImage: `url(${item.link})` }} className='h-full w-[35%] bg-no-repeat bg-cover'></div>
-            <div className='w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter'>
-              <p>{item.name}</p>
+            <div style={{ backgroundImage: `url(${item.link})` }} className='relative h-full w-[35%] bg-no-repeat  bg-cover'></div>
+            <div className='w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7'>
+              <p className='text-[25px]'>{item.name}</p>
               <p>{item.desp}</p>
-              <p>Price : {item.price}₹</p>
+              <p className='text-[25px]'>Price : {item.price}₹</p>
             </div>
             </div>
         ))}
-<style>
 
-
- 
-  -ms-overflow-style: none;
-
-
-  scrollbar-width: none;
-
-</style>
 
         </div>
 

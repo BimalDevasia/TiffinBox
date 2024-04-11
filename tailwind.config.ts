@@ -13,15 +13,19 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
           'food':"url('/Rectangle 2.png')",
-          'menu':"url('/bg.png')"
+          'menu':"url('/bg.png')",
+          'forgot':"url('/forgot.png')"
       },
       colors:{
         'ingrey':'#424242',
         'inyellow':'#F5C000',
       },
       fontFamily:{
-        'bebasneue':'"Bebas Neue", sans-serif',
+        'bebasneue':['Bebas Neue, sans-serif'],
+        poppins:["var(--poppins)"],
+       
       },
+      
       screens:{
         'avg':'1098px',
         'med':'824px'
