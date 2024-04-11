@@ -14,7 +14,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
           'food':"url('/Rectangle 2.png')",
           'menu':"url('/bg.png')",
-          'forgot':"url('/forgot.png')"
+          'forgot':"url('/forgot.png')",
+          'reset':"url('./reset.png')"
       },
       colors:{
         'ingrey':'#424242',
