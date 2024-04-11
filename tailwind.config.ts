@@ -12,19 +12,19 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          'food':"url('/Rectangle 2.png')",
-          'menu':"url('/bg.png')"
+        'food': "url('/Rectangle 2.png')",
+        'menu': "url('/bg.png')"
       },
-      colors:{
-        'ingrey':'#424242',
-        'inyellow':'#F5C000',
+      colors: {
+        'ingrey': '#424242',
+        'inyellow': '#F5C000',
       },
-      fontFamily:{
-        'bebasneue':'"Bebas Neue", sans-serif',
+      fontFamily: {
+        'bebasneue': '"Bebas Neue", sans-serif',
       },
-      screens:{
-        'avg':'1098px',
-        'med':'824px'
+      screens: {
+        'avg': '1098px',
+        'med': '824px'
       }
     },
   },

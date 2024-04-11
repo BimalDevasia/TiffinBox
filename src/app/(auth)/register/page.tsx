@@ -63,7 +63,7 @@ const Register = () => {
 
                         <div className='flex gap-5'>
                             <input className='w-4 accent-ingrey focus:outline-none cursor-pointer' type='checkbox' name='terms' id='terms' required />
-                            <label htmlFor='terms'><p className='text-[20px]'>I agree to the <span className='text-inyellow'>terms and conditions</span></p></label>
+                            <label htmlFor='terms'><p className='text-[20px]'>I agree to the <Link href="/" className='text-inyellow'>terms and conditions</Link></p></label>
                         </div>
 
                         <div className='flex justify-between'>

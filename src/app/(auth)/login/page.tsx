@@ -83,7 +83,9 @@ const Login = () => {
                 <Link href="/register"><p className='absolute left-0 text-inyellow'>Register</p></Link>
               </div>
             </div>
-
+            <Link href="/forgot-password">
+              <p className="text-inyellow cursor-pointer">Forgot Password?</p>
+            </Link>
 
           </form>
 
@@ -92,6 +94,7 @@ const Login = () => {
         </div>
 
       </div>
+
 
 
 
