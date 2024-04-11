@@ -21,8 +21,9 @@ function page() {
           
         {items.map((item,id)=>(
           <div key={id} className='box flex w-full '>
-            <div style={{ backgroundImage: `url(${item.link})` }} className='relative h-full w-[35%] bg-no-repeat  bg-cover'></div>
-            <div className='w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7'>
+            <div style={{ backgroundImage: `url(${item.link})` }} className='h-full w-[35%] bg-no-repeat bg-cover'></div>
+            <div className=' group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7 '>
+            <div className='absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second'></div>
               <p className='text-[25px]'>{item.name}</p>
               <p>{item.desp}</p>
               <p className='text-[25px]'>Price : {item.price}₹</p>
@@ -33,12 +34,7 @@ function page() {
 
         </div>
 
-        
-          
-
-
-        
-
+      
     </div>
   )
 }
