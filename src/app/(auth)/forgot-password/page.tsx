@@ -3,7 +3,7 @@ import TitleBar from "@/components/TitleBar";
 const ForgotPassword = () => {
     return (
         <>
-
+   
             <div className='h-screen w-full relative flex bg-black font-bebasneue'>
                 
             <div className='bg-forgot avg:block hidden relative bg-cover bg-no-repeat w-[28%] h-full'></div>

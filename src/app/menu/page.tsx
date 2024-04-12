@@ -8,8 +8,8 @@ const foodtype=["BREAKFAST","LUNCH","SNACKS","DINNER","DRINKS"]
 function page() {
   return (
     
-    <div className='flex flex-col items-center w-screen bg-no-repeat bg-cover h-screen bg-menu text-white'>
-      <div className='absolute h-full w-full bg-black -z-10 opacity-75'></div>
+    <div className='flex flex-col items-center w-screen bg-no-repeat bg-cover h-screen bg-menu text-white pt-10'>
+      <div className='absolute h-full w-full top-0 bg-black -z-10 opacity-75'></div>
       <h1 className='font-poppins font-extrabold text-[40px] mt-3 mb-5'>Our Menu</h1>
       <div className='flex w-2/3 h-10 justify-center gap-5 mb-9'>
       { foodtype.map((items,id)=>(

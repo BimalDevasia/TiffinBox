@@ -16,9 +16,9 @@ const Register = () => {
     };
 
     return (
-        <div className='h-screen w-full relative flex bg-black font-bebasneue'>
-            <div className='bg-food relative bg-no-repeat w-[28%] h-full'>
-                <div className='absolute h-full w-full bg-gradient-to-b from-[rgb(0,0,0,0.9)] to-[rgb(0,0,0,0.2)]'></div>
+        <div className='h-screen w-full relative flex bg-black font-bebasneue overflow-auto'>
+            <div className='bg-food bg-cover fixed bg-no-repeat w-[28%] h-full'>
+                <div className='absolute h-full w-full bg-gradient-to-b from-[rgb(0,0,0,0.9)] to-[rgb(0,0,0,0.2)] '></div>
                 <Image className="z-1" src="" alt="Not Working" />
                 <div className='flex absolute gap- items-center bottom-48'>
                     <h1 className='text-8xl bg-gradient-to-b from-white to to-black text-transparent bg-clip-text font-bold font-bebasneue'>01</h1>
@@ -26,7 +26,7 @@ const Register = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col items-center absolute gap-20 top-0 right-0 w-[79%] h-full rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
+            <div className='flex flex-col items-center absolute right-0 gap-10 pt-12 w-[79%] h-screen rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
                 <div className='flex w-9/12 items-center justify-between pt-6 text-inyellow    '>
                     <div className='flex gap-3'>
                         <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>
@@ -40,24 +40,24 @@ const Register = () => {
                     </div>
                 </div>
 
-                <div className='flex w-9/12 justify-between mb-[0.5rem] '>
+                <div className='flex w-9/12 justify-between '>
                     <div className='w-1/3'>
                         <h6 className='text-2xl mb-3 font-bebasneue'>WELCOME</h6>
                         <p className='text-5xl font-bebasneue'>is simply dummy <br /> text of the <br />printing and lorem <br />ipsum industry</p>
                     </div>
 
                     <form className='flex flex-col w-7/12 gap-10'>
-                        <input className='h-16 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Name' type='text' name='name' id='name' required />
+                        <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Name' type='text' name='name' id='name' required />
 
-                        <input className='h-16 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type='text' name='email' id='email' required />
+                        <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type='text' name='email' id='email' required />
 
                         <div className='relative'>
-                            <input className='h-16 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={showPassword1 ? 'text' : 'password'} name='password1' id='password1' />
+                            <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={showPassword1 ? 'text' : 'password'} name='password1' id='password1' />
                             <Image onClick={togglePasswordVisibility1} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src='/Lock.svg' alt='Toggle Password Visibility' />
                         </div>
 
                         <div className='relative'>
-                            <input className='h-16 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Confirm Password' type={showPassword2 ? 'text' : 'password'} name='password2' id='password2' />
+                            <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Confirm Password' type={showPassword2 ? 'text' : 'password'} name='password2' id='password2' />
                             <Image onClick={togglePasswordVisibility2} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src='/Lock.svg' alt='Toggle Password Visibility' />
                         </div>
 

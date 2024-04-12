@@ -27,10 +27,10 @@ const Login = () => {
 
 
   return (
-    <div className='h-screen w-full relative flex bg-black font-bebasneue'>
+    <div className='h-screen w-full relative flex bg-black font-bebasneue '>
 
 
-      <div className='bg-food avg:block hidden relative bg-cover bg-no-repeat w-[28%] h-full'>
+      <div className='bg-food avg:block hidden fixed bg-cover bg-no-repeat w-[28%] h-full'>
         <div className='absolute h-full w-full bg-gradient-to-b from-[rgb(0,0,0,0.9)] to-[rgb(0,0,0,0.2)]'></div>
         <Image className="z-1" src="" alt="Not Working  " />
         <div className='flex  absolute gap- items-center bottom-48'>
@@ -41,10 +41,10 @@ const Login = () => {
 
 
 
-      <div className='flex flex-col avg:absolute items-center gap-20 relative top-0 right-0 w-screen avg:w-[79%] h-screen rounded-3xl bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
+      <div className='flex flex-col avg:absolute items-center gap-10 relative pt-12 right-0 w-screen avg:w-[79%] h-screen rounded-3xl bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white'>
 
 
-        <div className='flex avg:w-9/12 w-[50%] items-center justify-between pt-12 text-inyellow '>
+        <div className='flex avg:w-9/12 w-[50%] items-center justify-between pt-6 text-inyellow '>
 
           <div className='flex gap-3'>
             <Link href="register">
