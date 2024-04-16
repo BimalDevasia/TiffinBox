@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const TitleBar = () => {
     return (
-        <div className="flex-grow flex justify-between p-10">
+        <div className="flex-grow flex justify-between pt-10 px-10">
             <div className="text-neutral-50 font-normal text-2xl">
                 <Link href="/"><p className="hover:text-yellow-400">TiffinBox</p></Link>
             </div>
