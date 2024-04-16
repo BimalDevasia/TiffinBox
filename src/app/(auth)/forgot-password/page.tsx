@@ -25,7 +25,7 @@ const ForgotPassword = () => {
 
     <form className='flex  flex-col med:w-7/12 w-full gap-10'>
 
-      <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email address' type="text" name="" id="email" required />
+      <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email address' type="email" name="" id="email" required />
 
       <div className="w-full place-items-center flex justify-between">
         <p className="text-inyellow">Try Another Way</p>

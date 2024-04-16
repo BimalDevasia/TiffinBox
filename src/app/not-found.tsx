@@ -7,7 +7,7 @@ const Custom404 = () => {
             <TitleBar />
             <div className="flex flex-col items-center justify-center text-white flex-grow">
                 <div>
-                    <img src="404.png" alt="404 Not Found" className="w-64 h-auto mb-6" />
+                    <img src="404.png" alt="404 Not Found" className="w-64 h-auto mb-20" />
                 </div>
                 <div className="text-center text-neutral-50 font-normal">
                     <p className="text-3xl">The page you're looking for doesn't exist or has been moved.</p>

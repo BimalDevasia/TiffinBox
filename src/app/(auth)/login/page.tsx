@@ -16,13 +16,6 @@ const Login = () => {
       change1("password")
 
   }
-  const toggle2 = () => {
-    if (pass2 === "password")
-      change2("text")
-    else
-      change2("password")
-
-  }
 
 
 
