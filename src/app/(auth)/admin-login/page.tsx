@@ -16,6 +16,13 @@ const Login = () => {
       change1("password")
 
   }
+  const toggle2 = () => {
+    if (pass2 === "password")
+      change2("text")
+    else
+      change2("password")
+
+  }
 
 
 
@@ -40,15 +47,13 @@ const Login = () => {
         <div className='flex avg:w-9/12 w-[50%] items-center justify-between pt-6 text-inyellow '>
 
           <div className='flex gap-3'>
-            <Link href="register">
-              <div className='flex med:w-24 w-10 med:h-14 h-10 justify-center cursor-pointer items-center rounded-md hover:bg-ingrey hover:text-white med:text-[17px] text-[10px]'>Sign up
-              </div></Link>
+            
             <div className='flex med:w-24 w-10 med:h-14 h-10 justify-center cursor-pointer rounded-md items-center bg-ingrey text-white  med:text-[17px] text-[10px]'>Sign in</div>
           </div>
           <div className='flex gap-3'>
-            <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center rounded-md bg-ingrey text-white med:text-[17px] text-[10px]'>User</div>
-            <Link href="/admin-login">
-            <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white med:text-[17px] text-[10px]'>Admin</div></Link>
+            <Link href="/login">
+            <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center rounded-md hover:bg-ingrey text-white med:text-[17px] text-[10px]'>User</div></Link>
+            <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center bg-ingrey rounded-md hover:text-white med:text-[17px] text-[10px]'>Admin</div>
           </div>
         </div>
 
@@ -72,14 +77,9 @@ const Login = () => {
 
             <div className='flex justify-between'>
               <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black  h-[4.5rem] font-bold text-[20px]'>SIGN IN</button>
-              <div className='relative'>
-                <p className='text-[17px]'>Don&apos;t have an account yet?<br />Sign up now!</p>
-                <Link href="/register"><p className='absolute left-0 text-inyellow'>Register</p></Link>
-              </div>
+              
             </div>
-            <Link href="/forgot-password">
-              <p className="text-inyellow cursor-pointer">Forgot Password?</p>
-            </Link>
+            
 
           </form>
 
