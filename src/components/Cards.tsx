@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { IoFastFoodOutline } from "react-icons/io5";
 import { PiBowlFood } from "react-icons/pi";
 import { TbChefHat } from "react-icons/tb";
-function New() {
+function Cards() {
   return (
-   <div className='flex  flex-col gap-20 w-screen h-screen items-center  justify-center'>
+   <div className='flex  flex-col gap-20 w-screen h-screen items-center bg-black justify-center'>
     <p className='text-3xl text-white'>WHY CHOOSE OUR FOOD </p>
    
     <div className='flex justify-center h- items-center  gap-24 '>
@@ -31,4 +31,4 @@ function New() {
 }
 
 
-export default New
+export default Cards
