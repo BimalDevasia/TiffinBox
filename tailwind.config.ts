@@ -15,7 +15,7 @@ const config: Config = {
           'food':"url('/Rectangle 2.png')",
           'menu':"url('/bg.png')",
           'forgot':"url('/forgot.png')",
-          'reset':"url('./reset.png')",
+          'reset':"url('/reset.png')",
           'home':"url('/home.png')",
           'front':"url('/front.png')",
           'drink':"url('/drink.png')"
