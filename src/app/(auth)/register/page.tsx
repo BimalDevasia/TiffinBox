@@ -36,7 +36,8 @@ const Register = () => {
                     </div>
                     <div className='flex gap-3'>
                         <div className='flex w-24 h-14 justify-center cursor-pointer items-center rounded-md bg-ingrey text-white text-[17px]'>User</div>
-                        <div className='flex w-24 h-14 justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white text-[17px]'>Admin</div>
+                        <Link href="/admin-login">
+                        <div className='flex w-24 h-14 justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white text-[17px]'>Admin</div></Link>
                     </div>
                 </div>
 
