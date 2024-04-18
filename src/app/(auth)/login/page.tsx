@@ -2,12 +2,12 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 
-
-const Login = () => {
-
+const Login: React.FC = () => {
+  const router = useRouter();
   const [pass1, change1] = useState("password")
-  const [pass2, change2] = useState("password")
+  // const [pass2, change2] = useState("password")
 
   const toggle1 = () => {
     if (pass1 === "password")
@@ -16,9 +16,43 @@ const Login = () => {
       change1("password")
 
   }
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
 
+      if (!response.ok) {
+        const error = await response.json();
+        console.error('Error Logging in:', error.message);
+        alert(`Error Logging in: ${error.message}`);
+        return;
+      }
 
+      const data = await response.json();
+      console.log('User Logged in:', data);
+      router.push("/home")
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
   return (
     <div className='h-screen w-full relative flex bg-black font-bebasneue '>
 
@@ -48,7 +82,7 @@ const Login = () => {
           <div className='flex gap-3'>
             <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center rounded-md bg-ingrey text-white med:text-[17px] text-[10px]'>User</div>
             <Link href="/admin-login">
-            <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white med:text-[17px] text-[10px]'>Admin</div></Link>
+              <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center hover:bg-ingrey rounded-md hover:text-white med:text-[17px] text-[10px]'>Admin</div></Link>
           </div>
         </div>
 
@@ -61,12 +95,13 @@ const Login = () => {
 
           </div >
 
-          <form className='flex  flex-col med:w-7/12 w-full gap-10'>
+          <form className='flex  flex-col med:w-7/12 w-full gap-10' onSubmit={handleSubmit}>
 
-            <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type="text" name="" id="email" required />
+            <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type="text" name="email" id="email" value={formData.email}
+              onChange={handleInputChange} required />
 
             <div className='relative'>
-              <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={`${pass1}`} name="" id="password1" />
+              <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={`${pass1}`} name="password" id="password1" value={formData.password} onChange={handleInputChange} required />
               <Image onClick={toggle1} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src="/Lock.svg" alt="" />
             </div>
 
