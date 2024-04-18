@@ -1,4 +1,3 @@
-
 import connectMongoDB from '@/lib/mongodb';
 import User from '@/models/userSchema';
 import bcrypt from 'bcrypt';

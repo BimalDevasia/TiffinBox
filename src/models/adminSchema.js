@@ -1,12 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
-const userSchema = new mongoose.Schema(
+const adminSchema = new mongoose.Schema(
     {
-        name: {
-            type: String,
-            required: true,
-        },
         email: {
             type: String,
             required: true,
@@ -21,7 +17,7 @@ const userSchema = new mongoose.Schema(
         role: {
             type: String,
             enum: ['user', 'admin'],
-            default: 'user',
+            default: 'admin',
         },
     },
     {
@@ -29,7 +25,7 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-userSchema.pre('save', async function (next) {
+adminSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
 
     try {
@@ -41,10 +37,10 @@ userSchema.pre('save', async function (next) {
     }
 });
 
-userSchema.methods.comparePassword = async function (candidatePassword) {
+adminSchema.methods.comparePassword = async function (candidatePassword) {
     return bcrypt.compare(candidatePassword, this.password);
 };
 
-const User = mongoose.models.User || mongoose.model('User', userSchema);
+const Admin = mongoose.models.Admin || mongoose.model('Admin', adminSchema);
 
-export default User;
+export default Admin;
