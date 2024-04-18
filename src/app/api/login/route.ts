@@ -15,19 +15,19 @@ export async function POST(req: NextRequest) {
         // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
-            return NextResponse.json({ message: 'Invalid email or password', status: 404 });
+            return NextResponse.json({ message: 'Invalid email or password' }, { status: 404 });
         }
 
         // Compare passwords
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) {
-            return NextResponse.json({ message: 'Invalid email or password', status: 404 })
+            return NextResponse.json({ message: 'Invalid email or password' }, { status: 404 })
         }
 
         // Successful login
         return NextResponse.json({ message: 'Login successful', user: { id: user._id, name: user.name, email: user.email } });
     } catch (error) {
         console.error('Login error:', error);
-        return NextResponse.json({ message: 'Internal server error', status: 500 });
+        return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
     }
 }

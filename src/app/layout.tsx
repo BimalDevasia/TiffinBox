@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: "800" });
-
+const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400" })
 
 export const metadata: Metadata = {
   title: "Tiffin Box",
@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <body className={`${poppins.className}`}>
+      <body className={`${bebas.className}`}>
         <Navbar />
         {children}
       </body>
