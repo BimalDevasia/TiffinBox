@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 const Login: React.FC = () => {
   const router = useRouter();
   const [pass1, change1] = useState("password")
-  // const [pass2, change2] = useState("password")
 
   const toggle1 = () => {
     if (pass1 === "password")

@@ -2,12 +2,13 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 
-const Login = () => {
+const AdminLogin: React.FC = () => {
 
   const [pass1, change1] = useState("password")
-  const [pass2, change2] = useState("password")
+
 
   const toggle1 = () => {
     if (pass1 === "password")
@@ -16,16 +17,50 @@ const Login = () => {
       change1("password")
 
   }
-  const toggle2 = () => {
-    if (pass2 === "password")
-      change2("text")
-    else
-      change2("password")
+  const router = useRouter()
 
-  }
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  // AdminLogin.tsx
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
+    try {
+      const response = await fetch('/api/admin-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
 
+      if (!response.ok) {
+        const error = await response.json();
+        if (error.status === 403) {
+          alert(`Error Logging in: ${error.message}`);
+        } else {
+          console.error('Error Logging in:', error.message);
+          alert(`Error Logging in: ${error.message}`);
+        }
+        return;
+      }
 
+      const data = await response.json();
+      console.log('Admin Logged in:', data);
+      router.push('/home');
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
   return (
     <div className='h-screen w-full relative flex bg-black font-bebasneue '>
 
@@ -47,12 +82,12 @@ const Login = () => {
         <div className='flex avg:w-9/12 w-[50%] items-center justify-between pt-6 text-inyellow '>
 
           <div className='flex gap-3'>
-            
+
             <div className='flex med:w-24 w-10 med:h-14 h-10 justify-center cursor-pointer rounded-md items-center bg-ingrey text-white  med:text-[17px] text-[10px]'>Sign in</div>
           </div>
           <div className='flex gap-3'>
             <Link href="/login">
-            <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center rounded-md hover:bg-ingrey text-white med:text-[17px] text-[10px]'>User</div></Link>
+              <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center rounded-md hover:bg-ingrey text-white med:text-[17px] text-[10px]'>User</div></Link>
             <div className='flex med:w-24 w-10 med:h-14 h-10  justify-center cursor-pointer items-center bg-ingrey rounded-md hover:text-white med:text-[17px] text-[10px]'>Admin</div>
           </div>
         </div>
@@ -66,20 +101,20 @@ const Login = () => {
 
           </div >
 
-          <form className='flex  flex-col med:w-7/12 w-full gap-10'>
+          <form className='flex  flex-col med:w-7/12 w-full gap-10' onSubmit={handleSubmit}>
 
-            <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type="text" name="" id="email" required />
+            <input className='h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Email or Phone Number' type="text" name="email" id="email" value={formData.email} onChange={handleInputChange} required />
 
             <div className='relative'>
-              <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={`${pass1}`} name="" id="password1" />
+              <input className='h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg' placeholder='Password' type={`${pass1}`} name="password" id="password1" value={formData.password} onChange={handleInputChange} required />
               <Image onClick={toggle1} width={0} height={0} className='absolute w-7 top-[50%] translate-y-[-50%] right-12' src="/Lock.svg" alt="" />
             </div>
 
             <div className='flex justify-between'>
               <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black  h-[4.5rem] font-bold text-[20px]'>SIGN IN</button>
-              
+
             </div>
-            
+
 
           </form>
 
@@ -97,4 +132,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default AdminLogin
