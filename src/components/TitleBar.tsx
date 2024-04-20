@@ -8,12 +8,12 @@ const TitleBar = () => {
             </div>
             <div className="flex gap-10">
                 <div className="text-neutral-50 font-normal text-lg">
-                    <Link href="/">
+                    <Link href="/privacy">
                         <p className="hover:text-yellow-400">Privacy</p>
                     </Link>
                 </div>
                 <div className="text-neutral-50 font-normal text-lg">
-                    <Link href="/">
+                    <Link href="/help">
                         <p className="hover:text-yellow-400">Help</p>
                     </Link>
                 </div>

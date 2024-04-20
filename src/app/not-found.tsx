@@ -5,7 +5,7 @@ const Custom404 = () => {
     return (
         <div className='h-screen w-full relative flex flex-col bg-black font-bebasneue'>
             <TitleBar />
-            <div className="flex flex-col items-center justify-center text-white flex-grow">
+            <div className="flex flex-col items-center  text-white flex-grow">
                 <div>
                     <img src="404.png" alt="404 Not Found" className="w-64 h-auto mb-20" />
                 </div>
@@ -14,7 +14,7 @@ const Custom404 = () => {
                 </div>
                 <div className="mt-10">
                     <Link href="/">
-                        <p className="bg-yellow-400 text-white px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors duration-300 text-lg font-bold">Go back</p>
+                        <p className="bg-yellow-400 text-white px-6 py-3 rounded-full hover:bg-yellow-600 transition-colors duration-300 text-lg font-bold">Go back</p>
                     </Link>
                 </div>
             </div>
