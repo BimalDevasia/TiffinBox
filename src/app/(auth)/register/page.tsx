@@ -187,7 +187,7 @@ const Register: React.FC = () => {
                             />
                             <label htmlFor="terms">
                                 <p className="text-[20px]">
-                                    I agree to the <Link href="/" className="text-inyellow">
+                                    I agree to the <Link href="/privacy" className="text-inyellow">
                                         terms and conditions
                                     </Link>
                                 </p>

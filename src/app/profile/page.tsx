@@ -1,12 +1,25 @@
-import TitleBar from "@/components/TitleBar";
-import Link from "next/link";
+'use client';
 
-const Custom404 = () => {
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
+import TitleBar from "@/components/TitleBar"
+const Profile = () => {
+    const router = useRouter();
+
+    const handleSignOut = async () => {
+        try {
+            await signOut({ redirect: false });
+            router.push('/login');
+        } catch (error) {
+            console.error('Error signing out:', error);
+        }
+    };
     return (
         <div className='h-screen w-full relative flex flex-col bg-black font-bebasneue'>
             <TitleBar />
             <div className="flex flex-col items-center  text-white flex-grow">
-                <div>
+                {/* <div>
                     <img src="404.png" alt="404 Not Found" className="w-64 h-auto mb-20" />
                 </div>
                 <div className="text-center text-neutral-50 font-normal">
@@ -16,10 +29,11 @@ const Custom404 = () => {
                     <Link href="/">
                         <p className="bg-yellow-400 text-white px-6 py-3 rounded-full hover:bg-yellow-600 transition-colors duration-300 text-lg font-bold">Go back</p>
                     </Link>
-                </div>
+                </div> */}
+                <div><button onClick={handleSignOut}>Sign Out</button></div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Custom404;
+export default Profile

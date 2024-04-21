@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-
+import { signIn } from 'next-auth/react'
 
 const AdminLogin: React.FC = () => {
 
@@ -30,35 +30,52 @@ const AdminLogin: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('/api/admin-login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+    // try {
+    //   const response = await fetch('/api/admin-login', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       email: formData.email,
+    //       password: formData.password,
+    //     }),
+    //   });
 
-      if (!response.ok) {
-        const error = await response.json();
-        if (error.status === 403) {
-          alert(`Error Logging in: ${error.message}`);
-        } else {
-          console.error('Error Logging in:', error.message);
-          alert(`Error Logging in: ${error.message}`);
-        }
-        return;
-      }
+    //   if (!response.ok) {
+    //     const error = await response.json();
+    //     if (error.status === 403) {
+    //       alert(`Error Logging in: ${error.message}`);
+    //     } else {
+    //       console.error('Error Logging in:', error.message);
+    //       alert(`Error Logging in: ${error.message}`);
+    //     }
+    //     return;
+    //   }
 
-      const data = await response.json();
-      console.log('Admin Logged in:', data);
+    //   const data = await response.json();
+    //   console.log('Admin Logged in:', data);
+    //   router.push('/home');
+    // } catch (error) {
+    //   console.error('Error logging in:', error);
+    //   alert('An error occurred. Please try again later.');
+    // }
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+
+    const result = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (result?.error) {
+      console.error('Error signing in:', result.error);
+      alert(`Error signing in: ${result.error}`);
+    } else {
+      console.log('User signed in:', result);
       router.push('/home');
-    } catch (error) {
-      console.error('Error logging in:', error);
-      alert('An error occurred. Please try again later.');
     }
   };
   return (
