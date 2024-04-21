@@ -2,6 +2,7 @@ import React from 'react'
 import items from "./data"
 import Drink from '@/components/Drink'
 import Cards from '@/components/Cards'
+import Comment from '@/components/Comment'
 
 const foodtype=["BREAKFAST","LUNCH","SNACKS","DINNER","DRINKS"]
 
@@ -38,6 +39,7 @@ function page() {
 
         <Drink/>
         <Cards />
+        <Comment/>
     </>
   )
 }
