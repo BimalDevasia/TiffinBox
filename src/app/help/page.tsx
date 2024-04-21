@@ -2,26 +2,26 @@
 
 import TitleBar from "@/components/TitleBar";
 import { useState } from "react";
-
+import { useSession } from 'next-auth/react';
 const HelpPage = () => {
     const [userInput, setUserInput] = useState("");
-
+    const { data: session } = useSession();
+    const userEmail = session?.user?.email || '';
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setUserInput(e.target.value);
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+    
         try {
-            const response = await fetch("/api/help", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ userInput }),
-            });
-
+          const response = await fetch('/api/help', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userInput, userEmail }),
+          });
             if (response.ok) {
                 console.log("Help request submitted successfully");
                 setUserInput(""); // Clear the input field

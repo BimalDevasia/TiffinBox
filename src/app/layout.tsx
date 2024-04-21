@@ -48,7 +48,7 @@ export default async function RootLayout({
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <h1>Admin Panel</h1>
+      <Navbar />
       {children}
     </div>
   );

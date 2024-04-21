@@ -5,11 +5,12 @@ import HelpRequest from '@/models/helpSchema';
 
 export async function POST(req: NextRequest) {
     try {
-        const { userInput } = await req.json();
+        const { userInput, userEmail } = await req.json();
 
         await connectMongoDB();
 
-        const newHelpRequest = new HelpRequest({ userInput });
+        const newHelpRequest = new HelpRequest({ userInput, userEmail });
+
         await newHelpRequest.save();
 
         return NextResponse.json({ message: 'Help request submitted successfully' });
