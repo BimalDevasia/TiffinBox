@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
             });
         }
 
-        return NextResponse.json({ message: 'Login successful', admin: { id: admin._id, email: admin.email } });
+        return NextResponse.json({ message: 'Login successful', admin: { id: admin._id, name: admin.name, email: admin.email, role: admin.role } });
     } catch (error) {
         console.error('Login error:', error);
         return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
