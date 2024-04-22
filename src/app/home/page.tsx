@@ -1,31 +1,68 @@
-import React from 'react'
-import item from "./data.js";
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
-function page() {
+import { Items } from '@/models/types';
+
+function HomePage() {
+  const [currentTime, setCurrentTime] = useState('');
+  const [items, setItems] = useState<Items[]>([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const hours = now.getHours();
+      let timeText = '';
+
+      if (hours >= 0 && hours < 12) {
+        timeText = "Breakfast";
+      } else if (hours >= 12 && hours < 15) {
+        timeText = "Lunch";
+      } else if (hours >= 15 && hours < 19) {
+        timeText = "Tea";
+      } else {
+        timeText = "Dinner";
+      }
+
+      setCurrentTime(timeText);
+    }, 1000);
+
+    // Fetch items from the API
+    const fetchItems = async () => {
+      try {
+        const response = await fetch('/api/home');
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    fetchItems();
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <ProtectedRoute>
-      <div className='flex relative justify-around items-center bg-home bg-cover h-screen w-screen bg-no-repeat '>
-        <div className='absolute bg-black/30 w-full h-full '></div>
-        <div className='flex flex-col gap-3 text-white z-10'>
-          <p className='font-bold'>WHAT TIME IS IT <span className='text-inyellow'>?</span></p>
-          <p className='font-bold text-6xl'>IT'S <span className='text-inyellow'>LUNCH</span><br />TIME </p>
+      <div className="flex relative justify-around items-center bg-home bg-cover h-screen w-screen bg-no-repeat">
+        <div className="absolute bg-black/30 w-full h-full"></div>
+        <div className="flex flex-col gap-3 text-white z-10">
+          <p className="font-bold">WHAT TIME IS IT <span className="text-inyellow">?</span></p>
+          <p className="font-bold text-6xl">IT'S <span className="text-inyellow">{currentTime}</span><br />TIME </p>
         </div>
-        {
-          item.map((data, index) => (
-            <div key={index} className='flex flex-col gap-3 justify-center z-10 text-white bg-white/15 items-center w-1/5 h-[530px] border-solid border-white border-[1px] rounded-lg p-4'>
-              <p className='text-[20px]'>{data.name}</p>
-              <img src={`${data.link}`} alt="nope" />
-              <p className='text-center'>{data.desp}</p>
-              <p className='text-[20px]'><span className='text-inyellow font-bold'>PRICE :</span> {data.price} Rs</p>
-              <button type="submit" className='w-full bg-inyellow hover:bg-yellow-600 transition-colors duration-300 h-10 text-black rounded-lg font-bold'> ORDER NOW</button>
-            </div>
-
-          ))
-        }
-
+        {items.map((item: Items, index) => (
+          <div key={index} className="flex flex-col gap-3 justify-center z-10 text-white bg-white/15 items-center w-1/5 h-[530px] border-solid border-white border-[1px] rounded-lg p-4">
+            <p className="text-[20px]">{item.name}</p>
+            <img src={`${item.link}`} alt="nope" />
+            <p className="text-center">{item.desp}</p>
+            <p className="text-[20px]"><span className="text-inyellow font-bold">PRICE :</span> {item.price} Rs</p>
+            <button type="submit" className="w-full bg-inyellow hover:bg-yellow-600 transition-colors duration-300 h-10 text-black rounded-lg font-bold">ORDER NOW</button>
+          </div>
+        ))}
       </div>
     </ProtectedRoute>
   );
 }
 
-export default page
+export default HomePage;
