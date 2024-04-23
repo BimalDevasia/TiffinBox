@@ -21,16 +21,15 @@ function Page() {
  const [item, setItem]=useState(breakfast);
   const drinkRef = useRef<HTMLDivElement>(null);
   const handleClick = (point:any) => {
-    if (point !== null) {
+    if (point !== "drink") {
       setCheck(point);
     }
     if (point === "drink") {
       drinkRef.current?.scrollIntoView({ behavior: "smooth" }); 
+      setCheck((prevCheck)=>prevCheck);
+      point=check;
     }
-    if (point === "drink"){
-      setCheck("breakfast");
-      point="breakfast";
-    }
+    
     switch (point) {
       case "breakfast":
         setItem(breakfast);
