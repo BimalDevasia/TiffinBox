@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { Items } from '@/models/types';
+import Image from 'next/image';
 
 function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
@@ -52,12 +53,12 @@ function HomePage() {
           <p className="font-bold text-6xl">IT'S <span className="text-inyellow">{currentTime}</span><br />TIME </p>
         </div>
         {items.map((item: Items, index) => (
-          <div key={index} className="flex flex-col gap-3 justify-center z-10 text-white bg-white/15 items-center w-1/5 h-[530px] border-solid border-white border-[1px] rounded-lg p-4">
+          <div key={index} className=" relative flex flex-col justify-center  gap-3 z-10 text-white bg-white/15 items-center w-1/5 border-solid border-white border-[1px] rounded-lg p-4">
             <p className="text-[20px]">{item.name}</p>
-            <img src={`${item.link}`} alt="nope" />
+            <Image src={item.link} alt='' width={300} height={100} className='w-full h-60 '></Image>
             <p className="text-center">{item.desp}</p>
-            <p className="text-[20px]"><span className="text-inyellow font-bold">PRICE :</span> {item.price} Rs</p>
-            <button type="submit" className="w-full bg-inyellow hover:bg-yellow-600 transition-colors duration-300 h-10 text-black rounded-lg font-bold">ORDER NOW</button>
+            <p className="text-2xl"><span className="text-inyellow font-bold">PRICE :</span> {item.price} Rs</p>
+            <button type="submit" className="w-full  bg-inyellow hover:bg-yellow-600 transition-colors duration-300 h-10 text-black rounded-lg font-bold">ORDER NOW</button>
           </div>
         ))}
       </div>
