@@ -29,40 +29,42 @@ const AdminLogin: React.FC = () => {
   // AdminLogin.tsx
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // try {
-    //   const response = await fetch('/api/admin-login', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       email: formData.email,
-    //       password: formData.password,
-    //     }),
-    //   });
-
-    //   if (!response.ok) {
-    //     const error = await response.json();
-    //     if (error.status === 403) {
-    //       alert(`Error Logging in: ${error.message}`);
-    //     } else {
-    //       console.error('Error Logging in:', error.message);
-    //       alert(`Error Logging in: ${error.message}`);
-    //     }
-    //     return;
-    //   }
-
-    //   const data = await response.json();
-    //   console.log('Admin Logged in:', data);
-    //   router.push('/home');
-    // } catch (error) {
-    //   console.error('Error logging in:', error);
-    //   alert('An error occurred. Please try again later.');
-    // }
     const formData = new FormData(e.currentTarget);
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
+
+    try {
+      const response = await fetch('/api/admin-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        if (error.status === 403) {
+          alert(`Error Logging in: ${error.message}`);
+        } else {
+          console.error('Error Logging in:', error.message);
+          alert(`Error Logging in: ${error.message}`);
+        }
+        return;
+      }
+
+      const data = await response.json();
+      console.log('Admin Logged in:', data);
+      router.push('/home');
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred. Please try again later.');
+    }
+
+
 
     const result = await signIn('credentials', {
       email,
