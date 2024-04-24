@@ -5,3 +5,10 @@ export type Items = {
     price: number;
     mealTime: 'Breakfast' | 'Lunch' | 'Tea' | 'Dinner';
 };
+
+export interface HelpRequest {
+    _id: string;
+    userInput: string;
+    userEmail: string;
+    createdAt: Date;
+}
