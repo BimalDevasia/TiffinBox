@@ -15,7 +15,7 @@ function Drink() {
           <Carousel className='w-[80%] h-[500px] text-white'>
     <CarouselContent className='flex gap-5 h-[500px]'>
       {drinks.map((item,index)=>(
- <CarouselItem className='group relative flex justify-center basis-1/4 bg-no-repeat bg-cover bg-center rounded-lg' style={{ backgroundImage: `url(${item.link})` }} >
+ <CarouselItem key={index} className='group relative flex justify-center basis-1/4 bg-no-repeat bg-cover bg-center rounded-lg' style={{ backgroundImage: `url(${item.link})` }} >
   <div className="absolute -mx-3 tracking-widest -rotate-90 text-2xl text-white left-0 top-[50%]">
       {item.name}
     </div>

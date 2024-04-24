@@ -37,7 +37,7 @@ const PrivacyTerms = () => {
                     </ol>
                 </div>
                 <div className="mt-10">
-                    <Link href="/home">
+                    <Link href="/register">
                         <p className="bg-yellow-400 text-white px-6 py-3 rounded-full hover:bg-yellow-600 transition-colors duration-300 text-lg font-bold">
                             Go back
                         </p>

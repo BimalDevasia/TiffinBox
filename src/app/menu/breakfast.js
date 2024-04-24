@@ -1,0 +1,6 @@
+const items=[{name:"IDIYAPPAM EGG CURRY",desp:"diyappam, a South Indian staple, features delicate rice flour noodles steamed to perfection. Paired with aromatic egg curry, this dish offers a delightful blend of soft noodles and flavorful curry—a delicious and comforting meal for any occasion..",price:"40",link:"/breakfast.jpg"},
+{name:"IDIYAPPAM EGG CURRY",desp:"diyappam, a South Indian staple, features delicate rice flour noodles steamed to perfection. Paired with aromatic egg curry, this dish offers a delightful blend of soft noodles and flavorful curry—a delicious and comforting meal for any occasion..",price:"40",link:"/breakfast.jpg"},
+{name:"IDIYAPPAM EGG CURRY",desp:"diyappam, a South Indian staple, features delicate rice flour noodles steamed to perfection. Paired with aromatic egg curry, this dish offers a delightful blend of soft noodles and flavorful curry—a delicious and comforting meal for any occasion..",price:"40",link:"/breakfast.jpg"},
+{name:"IDIYAPPAM EGG CURRY",desp:"diyappam, a South Indian staple, features delicate rice flour noodles steamed to perfection. Paired with aromatic egg curry, this dish offers a delightful blend of soft noodles and flavorful curry—a delicious and comforting meal for any occasion..",price:"40",link:"/breakfast.jpg"}
+]
+export default items;
