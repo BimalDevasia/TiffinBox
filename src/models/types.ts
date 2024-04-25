@@ -12,3 +12,19 @@ export interface HelpRequest {
     userEmail: string;
     createdAt: Date;
 }
+export interface FoodItem {
+    category: string;
+    imageUrl: string;
+    name: string;
+    description: string;
+    price: number;
+    count: number;
+}
+
+export type DrinkItem = {
+    name: string;
+    description: string;
+    price: number;
+    imageUrl: string;
+    count: number;
+};
