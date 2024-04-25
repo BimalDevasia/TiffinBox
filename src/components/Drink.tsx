@@ -9,8 +9,8 @@ import {
 import drinks from "./drinks"
 function Drink() {
   return (
-    <div className='h-screen w-screen bg-drink bg-cover bg-no-repeat object-cover flex flex-col items-center justify-center text-white'>
-          <p>DRINKS</p>
+    <div className='h-screen w-screen bg-drink bg-cover bg-no-repeat object-cover flex flex-col gap-5 items-center justify-center text-white'>
+          <p className='text-5xl'>DRINKS</p>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta repellendus suscipit at molestiae beatae. Adipisci ratione quas sun</p>
           <Carousel className='w-[80%] h-[500px] text-white'>
     <CarouselContent className='flex gap-5 h-[500px]'>

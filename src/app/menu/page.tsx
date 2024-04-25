@@ -46,6 +46,7 @@ function Page() {
       default:
         break;
     }
+  
   };
 
   return (
@@ -69,7 +70,10 @@ function Page() {
                 <div className='absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second'></div>
                 <p className='text-[25px]'>{item.name}</p>
                 <p>{item.desp}</p>
-                <p className='text-[25px]'>Price : {item.price}₹</p>
+                <div className='flex gap-6  '> <p  className='text-[25px]'>Price : {item.price}₹</p>
+                <button type='submit' className='group-hover:bg-inyellow/100  bg-inyellow/40 rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]'>BUY</button>
+
+                </div>
               </div>
             </div>
           ))}
