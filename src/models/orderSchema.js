@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const CartSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
     userId: { type: String, required: true },
     items: [
         {
@@ -11,9 +11,13 @@ const CartSchema = new mongoose.Schema({
             // category: { type: String, required: true },
             image: { type: String, required: true },
             count: { type: Number, required: true },
-            quantity: { type: Number, required: true, default: 1 },
+            quantity: { type: Number, required: true },
         },
     ],
+    totalAmount: { type: Number, required: true },
+    createdAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Cart || mongoose.model('Cart', CartSchema);
+const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
+
+export default Order;

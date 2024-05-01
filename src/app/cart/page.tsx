@@ -44,6 +44,32 @@ const Cart = () => {
     const taxAmount = (amountWithoutTax * 0.15).toFixed(2);
 
     const totalAmount = (Number(amountWithoutTax) + Number(taxAmount)).toFixed(2);
+    const handleContinue = async () => {
+        const orderData = {
+            items: cart,
+            totalAmount: totalAmount,
+        };
+        console.log(orderData);
+
+        try {
+            const response = await fetch("/api/order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            if (response.ok) {
+                setCart([]);
+                // Optionally, you can redirect to the order confirmation page
+            } else {
+                console.error("Failed to place order");
+            }
+        } catch (error) {
+            console.error("Error placing order:", error);
+        }
+    };
     return (
         <>
             <section className="py-5 sm:py-7 bg-blue-100">
@@ -165,7 +191,7 @@ const Cart = () => {
                                         </li>
                                     </ul>
 
-                                    <a className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer">
+                                    <a className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer" onClick={handleContinue}>
                                         Continue
                                     </a>
 

@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
 
         const { user } = session;
         const { id: userId } = user;
-        const { product, name, desp, price, category, image, count, quantity } = await req.json();
+        const { product, name, desp, price, image, count, quantity } = await req.json();
 
         await connectMongo();
 
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
             { userId },
             {
                 $addToSet: {
-                    items: { product, name, desp, price, category, image, count, quantity },
+                    items: { product, name, desp, price, image, count, quantity },
                 },
             },
             { new: true, upsert: true }

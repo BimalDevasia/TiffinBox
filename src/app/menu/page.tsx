@@ -89,7 +89,6 @@ function Page() {
                         name: item.name,
                         desp: item.description,
                         price: item.price,
-                        category: item.category,
                         image: item.imageUrl,
                         count: item.count,
                       });

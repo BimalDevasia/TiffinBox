@@ -31,3 +31,16 @@ export type DrinkItem = {
     imageUrl: string;
     count: number;
 };
+
+export interface Order {
+    _id: string;
+    createdAt: string;
+    items: {
+        product: string;
+        name: string;
+        image: string;
+        price: number;
+        quantity: number;
+    }[];
+    totalAmount: number;
+}

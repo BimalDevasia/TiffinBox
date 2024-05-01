@@ -25,9 +25,9 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const addItemToCart = async ({ product, name, desp, price, category, image, count, quantity = 1 }) => {
+    const addItemToCart = async ({ product, name, desp, price, image, count, quantity = 1 }) => {
         try {
-            const item = { product, name, desp, price, category, image, count, quantity };
+            const item = { product, name, desp, price, image, count, quantity };
 
             // Check if the item already exists in the cart
             const existingItemIndex = cart.findIndex(cartItem => cartItem.product === item.product);
