@@ -29,8 +29,9 @@ export default async function RootLayout({
     <html lang="en">
       <head></head>
       <body className={`${bebas.className}`}>
-        <GlobalProvider>
-          <ClientSessionProvider session={session || adminSession}>
+
+        <ClientSessionProvider session={session || adminSession}>
+          <GlobalProvider>
             {/* Render different layouts based on the session */}
             {adminSession ? (
               <AdminLayout>{children}</AdminLayout>
@@ -40,8 +41,9 @@ export default async function RootLayout({
                 {children}
               </>
             )}
-          </ClientSessionProvider>
-        </GlobalProvider>
+          </GlobalProvider>
+        </ClientSessionProvider>
+
       </body>
     </html>
   );

@@ -24,6 +24,7 @@ export interface FoodItem {
 }
 
 export type DrinkItem = {
+    _id: mongoose.Types.ObjectId;
     name: string;
     description: string;
     price: number;

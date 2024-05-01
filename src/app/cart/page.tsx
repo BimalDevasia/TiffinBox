@@ -6,25 +6,37 @@ import CartContext from "@/context/CartContext";
 import Link from "next/link";
 
 const Cart = () => {
-    const { addItemToCart, deleteItemFromCart, cart } = useContext(CartContext);
+    const { addItemToCart, deleteItemFromCart, cart, setCart } = useContext(CartContext);
     const increaseQty = (cartItem: any) => {
         const newQty = cartItem?.quantity + 1;
-        const item = { ...cartItem, quantity: newQty };
 
         if (newQty > Number(cartItem.stock)) return;
 
-        addItemToCart(item);
+        const updatedCart = cart.map((item: any) => {
+            if (item.product === cartItem.product) {
+                return { ...item, quantity: newQty };
+            }
+            return item;
+        });
+
+        setCart(updatedCart);
     };
 
     const decreaseQty = (cartItem: any) => {
         const newQty = cartItem?.quantity - 1;
-        const item = { ...cartItem, quantity: newQty };
 
         if (newQty <= 0) return;
 
-        addItemToCart(item);
+        const updatedCart = cart.map((item: any) => {
+            if (item.product === cartItem.product) {
+                return { ...item, quantity: newQty };
+            }
+            return item;
+        });
+
+        setCart(updatedCart);
     };
-    const amountWithoutTax = cart?.cartItems?.reduce(
+    const amountWithoutTax = cart?.reduce(
         (acc: any, item: any) => acc + item.quantity * item.price,
         0
     );
@@ -37,18 +49,18 @@ const Cart = () => {
             <section className="py-5 sm:py-7 bg-blue-100">
                 <div className="container max-w-screen-xl mx-auto px-4">
                     <h2 className="text-3xl font-semibold mb-2">
-                        {cart?.cartItems?.length || 0} Item(s) in Cart
+                        {cart?.length || 0} Item(s) in Cart
                     </h2>
                 </div>
             </section>
 
-            {cart?.cartItems?.length > 0 && (
+            {cart?.length > 0 && (
                 <section className="py-10">
                     <div className="container max-w-screen-xl mx-auto px-4">
                         <div className="flex flex-col md:flex-row gap-4">
                             <main className="md:w-3/4">
                                 <article className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
-                                    {cart?.cartItems?.map((cartItem: any) => (
+                                    {cart?.map((cartItem: any) => (
                                         <div>
                                             <div className="flex flex-wrap lg:flex-row gap-5  mb-4">
                                                 <div className="w-full lg:w-2/5 xl:w-2/4">
@@ -136,7 +148,7 @@ const Cart = () => {
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>Total Units:</span>
                                             <span className="text-green-500">
-                                                {cart?.cartItems?.reduce(
+                                                {cart?.reduce(
                                                     (acc: any, item: any) => acc + item.quantity,
                                                     0
                                                 )}{" "}

@@ -6,6 +6,7 @@ import Cards from '@/components/Cards';
 import Comment from '@/components/Comment';
 import { FoodItem } from '@/models/types';
 import CartContext from "@/context/CartContext";
+import Link from 'next/link';
 const foodTypes = [
   { id: 'BREAKFAST', point: 'breakfast' },
   { id: 'LUNCH', point: 'lunch' },
