@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { getSession } from './session';
 import { getAdminSession } from './admin-session';
 import ClientSessionProvider from './SessionProvider';
+import { GlobalProvider } from "./GlobalProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: "800" });
@@ -28,17 +29,19 @@ export default async function RootLayout({
     <html lang="en">
       <head></head>
       <body className={`${bebas.className}`}>
-        <ClientSessionProvider session={session || adminSession}>
-          {/* Render different layouts based on the session */}
-          {adminSession ? (
-            <AdminLayout>{children}</AdminLayout>
-          ) : (
-            <>
-              <Navbar />
-              {children}
-            </>
-          )}
-        </ClientSessionProvider>
+        <GlobalProvider>
+          <ClientSessionProvider session={session || adminSession}>
+            {/* Render different layouts based on the session */}
+            {adminSession ? (
+              <AdminLayout>{children}</AdminLayout>
+            ) : (
+              <>
+                <Navbar />
+                {children}
+              </>
+            )}
+          </ClientSessionProvider>
+        </GlobalProvider>
       </body>
     </html>
   );

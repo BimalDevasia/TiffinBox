@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import Drink from '@/components/Drink';
 import Cards from '@/components/Cards';
 import Comment from '@/components/Comment';
 import { FoodItem } from '@/models/types';
+import CartContext from "@/context/CartContext";
 const foodTypes = [
   { id: 'BREAKFAST', point: 'breakfast' },
   { id: 'LUNCH', point: 'lunch' },
@@ -14,6 +15,8 @@ const foodTypes = [
 ];
 
 function Page() {
+  const { addItemToCart } = useContext(CartContext);
+
   const [check, setCheck] = useState('breakfast');
   const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
   const drinkRef = useRef<HTMLDivElement>(null);
@@ -45,7 +48,6 @@ function Page() {
   };
 
   const filteredFoodItems = foodItems.filter((item) => item.category === check);
-
   return (
     <>
       <div className="flex flex-col items-center w-screen bg-no-repeat bg-cover h-screen bg-menu text-white pt-10">
@@ -80,7 +82,17 @@ function Page() {
                   <p className="text-[25px]">Price : {item.price}₹</p>
                   <button
                     type="submit"
-                    className="group-hover:bg-inyellow/100 bg-inyellow/40 rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]"
+                    className="group-hover:bg-inyellow/100 bg-inyellow/40 rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]" onClick={() => {
+                      addItemToCart({
+                        product: item._id,
+                        name: item.name,
+                        desp: item.description,
+                        price: item.price,
+                        category: item.category,
+                        image: item.imageUrl,
+                        count: item.count,
+                      });
+                    }}
                   >
                     BUY
                   </button>

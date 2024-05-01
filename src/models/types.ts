@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 export type Items = {
     name: string;
     link: string;
@@ -13,6 +14,7 @@ export interface HelpRequest {
     createdAt: Date;
 }
 export interface FoodItem {
+    _id: mongoose.Types.ObjectId;
     category: string;
     imageUrl: string;
     name: string;
