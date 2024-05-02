@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 export type Items = {
     name: string;
     link: string;
@@ -13,6 +14,7 @@ export interface HelpRequest {
     createdAt: Date;
 }
 export interface FoodItem {
+    _id: mongoose.Types.ObjectId;
     category: string;
     imageUrl: string;
     name: string;
@@ -22,9 +24,23 @@ export interface FoodItem {
 }
 
 export type DrinkItem = {
+    _id: mongoose.Types.ObjectId;
     name: string;
     description: string;
     price: number;
     imageUrl: string;
     count: number;
 };
+
+export interface Order {
+    _id: string;
+    createdAt: string;
+    items: {
+        product: string;
+        name: string;
+        image: string;
+        price: number;
+        quantity: number;
+    }[];
+    totalAmount: number;
+}
