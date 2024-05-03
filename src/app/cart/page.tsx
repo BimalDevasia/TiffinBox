@@ -1,12 +1,18 @@
 "use client";
 
-import React, { useContext } from "react";
-
+import React, { useContext, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "@/components/Checkout";
+import { stripePromise } from "@/lib/stripe";
 import CartContext from "@/context/CartContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
     const { addItemToCart, deleteItemFromCart, cart, setCart } = useContext(CartContext);
+    const [clientSecret, setClientSecret] = useState("");
+    const router = useRouter();
     const increaseQty = (cartItem: any) => {
         const newQty = cartItem?.quantity + 1;
 
@@ -45,14 +51,14 @@ const Cart = () => {
 
     const totalAmount = (Number(amountWithoutTax) + Number(taxAmount)).toFixed(2);
     const handleContinue = async () => {
+
         const orderData = {
             items: cart,
             totalAmount: totalAmount,
         };
-        console.log(orderData);
 
         try {
-            const response = await fetch("/api/order", {
+            const response = await fetch("/api/create-payment-intent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,13 +67,13 @@ const Cart = () => {
             });
 
             if (response.ok) {
-                setCart([]);
-                // Optionally, you can redirect to the order confirmation page
+                const { clientSecret } = await response.json();
+                setClientSecret(clientSecret);
             } else {
-                console.error("Failed to place order");
+                console.error("Failed to create payment intent");
             }
         } catch (error) {
-            console.error("Error placing order:", error);
+            console.error("Error creating payment intent:", error);
         }
     };
     return (
@@ -206,6 +212,18 @@ const Cart = () => {
                         </div>
                     </div>
                 </section>
+            )}
+            {clientSecret && (
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    <CheckoutForm
+                        clientSecret={clientSecret}
+                        setClientSecret={setClientSecret}
+                        cart={cart}
+                        setCart={setCart}
+                        totalAmount={totalAmount}
+                        router={router}
+                    />
+                </Elements>
             )}
         </>
     );
