@@ -35,6 +35,7 @@ export type DrinkItem = {
 export interface Order {
     _id: string;
     createdAt: string;
+    userId: string;
     items: {
         product: string;
         name: string;

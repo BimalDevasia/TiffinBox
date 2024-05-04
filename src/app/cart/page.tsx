@@ -1,12 +1,18 @@
 "use client";
 
-import React, { useContext } from "react";
-
+import React, { useContext, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "@/components/Checkout";
+import { stripePromise } from "@/lib/stripe";
 import CartContext from "@/context/CartContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
     const { addItemToCart, deleteItemFromCart, cart, setCart } = useContext(CartContext);
+    const [clientSecret, setClientSecret] = useState("");
+    const router = useRouter();
     const increaseQty = (cartItem: any) => {
         const newQty = cartItem?.quantity + 1;
 
@@ -45,14 +51,14 @@ const Cart = () => {
 
     const totalAmount = (Number(amountWithoutTax) + Number(taxAmount)).toFixed(2);
     const handleContinue = async () => {
+
         const orderData = {
             items: cart,
             totalAmount: totalAmount,
         };
-        console.log(orderData);
 
         try {
-            const response = await fetch("/api/order", {
+            const response = await fetch("/api/create-payment-intent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,13 +67,13 @@ const Cart = () => {
             });
 
             if (response.ok) {
-                setCart([]);
-                // Optionally, you can redirect to the order confirmation page
+                const { clientSecret } = await response.json();
+                setClientSecret(clientSecret);
             } else {
-                console.error("Failed to place order");
+                console.error("Failed to create payment intent");
             }
         } catch (error) {
-            console.error("Error placing order:", error);
+            console.error("Error creating payment intent:", error);
         }
     };
     return (
@@ -137,11 +143,11 @@ const Cart = () => {
                                                 <div>
                                                     <div className="leading-5">
                                                         <p className="font-semibold not-italic">
-                                                            ${cartItem.price * cartItem.quantity.toFixed(2)}
+                                                            ₹{cartItem.price * cartItem.quantity.toFixed(2)}
                                                         </p>
                                                         <small className="text-gray-400">
                                                             {" "}
-                                                            ${cartItem.price} / per item{" "}
+                                                            ₹{cartItem.price} / per item{" "}
                                                         </small>
                                                     </div>
                                                 </div>
@@ -169,7 +175,7 @@ const Cart = () => {
                                     <ul className="mb-5">
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>Amount before Tax:</span>
-                                            <span>${amountWithoutTax}</span>
+                                            <span>₹{amountWithoutTax}</span>
                                         </li>
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>Total Units:</span>
@@ -183,11 +189,11 @@ const Cart = () => {
                                         </li>
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>TAX:</span>
-                                            <span>${taxAmount}</span>
+                                            <span>₹{taxAmount}</span>
                                         </li>
                                         <li className="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                                             <span>Total price:</span>
-                                            <span>${totalAmount}</span>
+                                            <span>₹{totalAmount}</span>
                                         </li>
                                     </ul>
 
@@ -206,6 +212,18 @@ const Cart = () => {
                         </div>
                     </div>
                 </section>
+            )}
+            {clientSecret && (
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    <CheckoutForm
+                        clientSecret={clientSecret}
+                        setClientSecret={setClientSecret}
+                        cart={cart}
+                        setCart={setCart}
+                        totalAmount={totalAmount}
+                        router={router}
+                    />
+                </Elements>
             )}
         </>
     );

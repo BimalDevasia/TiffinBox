@@ -10,6 +10,7 @@ import DrinkItem from "@/models/drinksSchema";
 export async function GET(req: NextRequest) {
     try {
         const session = await getServerSession(authOptions);
+
         if (!session) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
@@ -26,6 +27,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
     }
 }
+
 export async function POST(req: NextRequest) {
     try {
         const session = await getServerSession(authOptions);
@@ -46,13 +48,9 @@ export async function POST(req: NextRequest) {
             items,
             totalAmount,
         });
-        // const productStocks = await Promise.all(
-        //     items.map(async (item: any) => {
-        //         const product = await FoodItem.findOne({ _id: item.product });
-        //         return { productId: item.product, count: product?.count || 0 };
-        //     })
-        // );
+
         const savedOrder = await newOrder.save();
+
         await Cart.findOneAndUpdate(
             { userId },
             { $set: { items: [] } },
@@ -70,6 +68,7 @@ export async function POST(req: NextRequest) {
                         { $inc: { count: -item.quantity } },
                         { new: true }
                     );
+
                     if (product) {
                         console.log(`Updated stock for ${product.name}: ${product.count}`);
                     } else {
@@ -81,6 +80,7 @@ export async function POST(req: NextRequest) {
                         { $inc: { count: -item.quantity } },
                         { new: true }
                     );
+
                     if (product) {
                         console.log(`Updated stock for ${product.name}: ${product.count}`);
                     } else {
