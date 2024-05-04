@@ -45,17 +45,27 @@ function Drink() {
               </div>
               <div className='pt-9'>{item.description}</div>
               <div className='absolute bottom-10 flex gap-3 flex-col items-center invisible group-hover:visible transition-all '>
-                <span className='text-2xl'>PRICE :{item.price} INR</span>
-                <button type='submit' className='bg-inyellow rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]' onClick={() => {
-                  addItemToCart({
-                    product: item._id,
-                    name: item.name,
-                    desp: item.description,
-                    price: item.price,
-                    image: item.imageUrl,
-                    count: item.count,
-                  });
-                }}>ORDER NOW</button>
+                <span className='text-2xl'>PRICE :{item.price}₹</span>
+                <button
+                  type='submit'
+                  className='bg-inyellow rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]'
+                  onClick={() => {
+                    if (item.count <= 0) {
+                      alert('Out of Stock');
+                    } else {
+                      addItemToCart({
+                        product: item._id,
+                        name: item.name,
+                        desp: item.description,
+                        price: item.price,
+                        image: item.imageUrl,
+                        count: item.count,
+                      });
+                    }
+                  }}
+                >
+                  ORDER NOW
+                </button>
               </div>
             </CarouselItem>
           ))}

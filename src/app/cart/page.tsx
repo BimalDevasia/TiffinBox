@@ -143,11 +143,11 @@ const Cart = () => {
                                                 <div>
                                                     <div className="leading-5">
                                                         <p className="font-semibold not-italic">
-                                                            ${cartItem.price * cartItem.quantity.toFixed(2)}
+                                                            ₹{cartItem.price * cartItem.quantity.toFixed(2)}
                                                         </p>
                                                         <small className="text-gray-400">
                                                             {" "}
-                                                            ${cartItem.price} / per item{" "}
+                                                            ₹{cartItem.price} / per item{" "}
                                                         </small>
                                                     </div>
                                                 </div>
@@ -175,7 +175,7 @@ const Cart = () => {
                                     <ul className="mb-5">
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>Amount before Tax:</span>
-                                            <span>${amountWithoutTax}</span>
+                                            <span>₹{amountWithoutTax}</span>
                                         </li>
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>Total Units:</span>
@@ -189,11 +189,11 @@ const Cart = () => {
                                         </li>
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>TAX:</span>
-                                            <span>${taxAmount}</span>
+                                            <span>₹{taxAmount}</span>
                                         </li>
                                         <li className="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                                             <span>Total price:</span>
-                                            <span>${totalAmount}</span>
+                                            <span>₹{totalAmount}</span>
                                         </li>
                                     </ul>
 
