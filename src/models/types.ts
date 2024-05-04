@@ -45,3 +45,14 @@ export interface Order {
     }[];
     totalAmount: number;
 }
+
+export interface Transaction {
+    _id: string;
+    userId: string;
+    amount: number;
+    date: string;
+}
+
+export interface TotalsObject {
+    [key: string]: number;
+}
