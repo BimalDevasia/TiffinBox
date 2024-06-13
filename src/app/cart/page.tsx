@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef,useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "@/components/Checkout";
@@ -12,6 +12,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Cart = () => {
     const { addItemToCart, deleteItemFromCart, cart, setCart } = useContext(CartContext);
+    const payref=useRef<HTMLDivElement>(null);
     const [clientSecret, setClientSecret] = useState("");
     const router = useRouter();
     const increaseQty = (cartItem: any) => {
@@ -76,7 +77,16 @@ const Cart = () => {
         } catch (error) {
             console.error("Error creating payment intent:", error);
         }
+
+        
+       
     };
+
+    useEffect(()=>{
+        payref.current?.scrollIntoView({ behavior: 'smooth' });
+    },[clientSecret])
+
+
 
     const CurrentDate = () => {
         const date = new Date();
@@ -228,8 +238,10 @@ const Cart = () => {
                     </div>
                 </section>
             )}
+            </div>
             {clientSecret && (
-                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <div ref={payref}>
+                <Elements  stripe={stripePromise} options={{ clientSecret }}>
                     <CheckoutForm
                         clientSecret={clientSecret}
                         setClientSecret={setClientSecret}
@@ -239,8 +251,9 @@ const Cart = () => {
                         router={router}
                     />
                 </Elements>
+                </div>
             )}
-            </div>
+            
         </>
     );
 };

@@ -72,7 +72,8 @@ const config = {
         'front': "url('/front.png')",
         'drink': "url('/drink.png')",
         'breakfast': "url('./breakfast.jpg')",
-        'cart':"url('/cart.jpeg')"
+        'cart':"url('/cart.jpeg')",
+        'payment':"url('/paymentdetails.jpeg')"
       },
       borderRadius: {
         lg: "var(--radius)",

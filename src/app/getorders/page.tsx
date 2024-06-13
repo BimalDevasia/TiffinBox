@@ -30,7 +30,7 @@ const AllOrders = () => {
     });
 
     return (
-        <div className="container mx-auto py-8">
+        <div className="container mx-auto py-8 w-[1288px] bg-black text-white min-h-screen pt-32">
             <h1 className="text-3xl font-bold mb-6">All Orders</h1>
             <div className="mb-4">
                 <label htmlFor="search-date" className="mr-2">
