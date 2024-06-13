@@ -38,7 +38,7 @@ const DeleteUser = () => {
                 value={userId}
                 
                 onChange={(e) => setUserId(e.target.value)}
-                className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg'
+                className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg bg-ingrey text-white'
             />
             <button onClick={handleDeleteUser} className=' p-4 bg-inyellow text-black rounded-lg'>Delete User</button>
             </div>

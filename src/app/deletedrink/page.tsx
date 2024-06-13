@@ -29,20 +29,22 @@ const DeleteDrink = () => {
     };
 
     return (
-        <div>
-            <h1>Delete Drink</h1>
-            <form onSubmit={handleSubmit}>
+        <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
+            <h1 className='text-white text-xl'>Delete Drink</h1>
+            <form onSubmit={handleSubmit} className='flex flex-row'>
                 <div>
-                    <label htmlFor="name">Name:</label>
+                    
                     <input
                         type="text"
                         id="name"
                         value={name}
+                        placeholder='Enter the drink name'
                         onChange={(e) => setName(e.target.value)}
                         required
+                        className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg bg-ingrey text-white'
                     />
                 </div>
-                <button type="submit">Delete Drink</button>
+                <button type="submit" className=' p-4 bg-inyellow text-black rounded-lg'>Delete Drink</button>
             </form>
         </div>
     );

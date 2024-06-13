@@ -41,9 +41,9 @@ const AdminPage = () => {
     };
 
     return (
-        <div className='flex bg-black h-screen w-[1288px]'>
+        <div className='flex bg-black h-screen w-[80rem]'>
             <div className='items-center justify-center my-10 text-white flex flex-col gap-5 w-full'>
-                <h1 className='text-xl font-bold'>Add Food Item</h1>
+                <h1 className='text-xl font-bold'>ADD FOOD ITEMS</h1>
                 <form onSubmit={handleSubmit} className='flex flex-col justify-center gap-5 items-center '>
                     <div className='flex flex-row gap-5 w-2/3'>
                     <div className='flex flex-col gap-3'>
@@ -53,7 +53,7 @@ const AdminPage = () => {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className='focus:outline-none rounded-lg h-[40px] p-3 text-black'
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
                         />
                     </label>
                     <label>
@@ -62,7 +62,8 @@ const AdminPage = () => {
                             type="text"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
-                        />
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
+                       />
                     </label>
                     <label>
                         Price:
@@ -70,6 +71,7 @@ const AdminPage = () => {
                             type="number"
                             value={price}
                             onChange={(e) => setPrice(parseInt(e.target.value))}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
                         />
                     </label>
                     <label>
@@ -78,31 +80,33 @@ const AdminPage = () => {
                             type="number"
                             value={count}
                             onChange={(e) => setCount(parseInt(e.target.value))}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
                         />
                     </label>
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col gap-3'>
                     <label>
                         Description:
-                        <input
-                            type="text"
+                        <textarea
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
+                            className='focus:outline-none  rounded-lg h-[190px] w-[350px] bg-ingrey p-3 text-white leading-none'
                         />
                     </label>
                     <label>
-                        Image:
+                        Image URL:
                         <input
                             type="text"
                             value={imageUrl}
                             onChange={(e) => setImageUrl(e.target.value)}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
                         />
                     </label>
                     </div>
                     </div>
                     
                    
-                    <button type="submit">Add Food Item</button>
+                    <button type="submit" className='bg-inyellow text-black w-40 h-10 rounded-lg'>Add Food Item</button>
                 </form>
             </div>
         </div>

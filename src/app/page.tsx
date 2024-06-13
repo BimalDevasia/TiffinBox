@@ -6,12 +6,8 @@ export default async function Home() {
   return (
     <ProtectedRoute>
       <>
-        <div className="bg-black absolute w-full h-full">
-          <div>hello</div>
-          <Link href="/login">
-            <button className="bg-inyellow">Sign Up</button>
-          </Link>
-        </div>
+        <div className="w-screen h-screen bg-black"></div>
+        
       </>
     </ProtectedRoute>
   );

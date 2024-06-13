@@ -46,8 +46,8 @@ const TransactionsPage = () => {
     };
 
     return (
-        <div className="container mx-auto py-8">
-            <h1 className="text-3xl font-bold mb-6">All Transactions</h1>
+        <div className="container mx-auto py-8 bg-black min-h-screen w-[1288px] text-white pt-32">
+            <h1 className="text-3xl font-bold mb-6 text-inyellow">All Transactions</h1>
 
             <div className="mb-6">
                 <h2 className="text-xl font-bold mb-2">Daily Totals</h2>
@@ -82,7 +82,7 @@ const TransactionsPage = () => {
             <div>
                 <h2 className="text-xl font-bold mb-2">All Transactions</h2>
                 {transactions.map((transaction) => (
-                    <div key={transaction._id} className="bg-white rounded-lg shadow-md p-4 mb-4">
+                    <div key={transaction._id} className="bg-ingrey  rounded-lg shadow-md p-4 mb-4">
                         <div className="flex justify-between items-center">
                             <span>User ID: {transaction.userId}</span>
                             <span>{moment(transaction.date).format("YYYY-MM-DD")}</span>

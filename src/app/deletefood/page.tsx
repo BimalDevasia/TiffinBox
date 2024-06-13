@@ -27,15 +27,18 @@ const DeleteItem = () => {
     };
 
     return (
-        <div>
-            <h2>Delete Food Item</h2>
+        <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
+            <h2 className='text-white text-xl'>Delete Food Item</h2>
+            <div>
             <input
                 type="text"
                 value={itemName}
                 onChange={(e) => setItemName(e.target.value)}
                 placeholder="Enter food item name"
+                className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg bg-ingrey text-white'
             />
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDelete} className=' p-4 bg-inyellow text-black rounded-lg'>Delete</button>
+            </div>
         </div>
     );
 };

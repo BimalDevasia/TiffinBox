@@ -38,60 +38,66 @@ const InsertDrink = () => {
     };
 
     return (
-        <div>
-            <h1>Insert Drink</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="description">Description:</label>
-                    <textarea
-                        id="description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="price">Price:</label>
-                    <input
-                        type="number"
-                        id="price"
-                        value={price}
-                        onChange={(e) => setPrice(parseInt(e.target.value))}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="imageUrl">Image URL:</label>
-                    <input
-                        type="text"
-                        id="imageUrl"
-                        value={imageUrl}
-                        onChange={(e) => setImageUrl(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="count">Count:</label>
-                    <input
-                        type="number"
-                        id="count"
-                        value={count}
-                        onChange={(e) => setCount(parseInt(e.target.value))}
-                        required
-                    />
-                </div>
-                <button type="submit">Insert Drink</button>
+        <div className='flex bg-black h-screen w-[80rem]'>
+             <div className='items-center justify-center my-10 text-white flex flex-col gap-5 w-full'>
+            <h1 className='text-xl font-bold'>INSERT DRINK</h1>
+             <form onSubmit={handleSubmit} className='flex flex-col justify-center gap-5 items-center '>
+                    <div className='flex flex-row gap-5 w-2/3'>
+                    <div className='flex flex-col gap-3'>
+                    <label>
+                        Name:
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
+                        />
+                    </label>
+                    
+                    <label>
+                        Price:
+                        <input
+                            type="number"
+                            value={price}
+                            onChange={(e) => setPrice(parseInt(e.target.value))}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
+                        />
+                    </label>
+                    <label>
+                        Count:
+                        <input
+                            type="number"
+                            value={count}
+                            onChange={(e) => setCount(parseInt(e.target.value))}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
+                        />
+                    </label>
+                    </div>
+                    <div className='flex flex-col gap-3'>
+                    <label>
+                        Description:
+                        <textarea
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            className='focus:outline-none  rounded-lg h-[107px] w-[350px] bg-ingrey p-3 text-white leading-none'
+                        />
+                    </label>
+                    <label>
+                        Image URL:
+                        <input
+                            type="text"
+                            value={imageUrl}
+                            onChange={(e) => setImageUrl(e.target.value)}
+                            className='focus:outline-none rounded-lg h-[40px] bg-ingrey w-[350px] p-3 text-white'
+                        />
+                    </label>
+                    </div>
+                    </div>
+                    
+                   
+                    <button type="submit" className='bg-inyellow text-black w-40 h-10 rounded-lg'>Insert Drink</button>
             </form>
+            </div>
         </div>
     );
 };
