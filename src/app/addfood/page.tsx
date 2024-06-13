@@ -41,32 +41,19 @@ const AdminPage = () => {
     };
 
     return (
-        <div className='flex'>
-            <div className='align-center justify-center my-10'>
-                <h1>Add Food Item</h1>
-                <form onSubmit={handleSubmit}>
+        <div className='flex bg-black h-screen w-[1288px]'>
+            <div className='items-center justify-center my-10 text-white flex flex-col gap-5 w-full'>
+                <h1 className='text-xl font-bold'>Add Food Item</h1>
+                <form onSubmit={handleSubmit} className='flex flex-col justify-center gap-5 items-center '>
+                    <div className='flex flex-row gap-5 w-2/3'>
+                    <div className='flex flex-col gap-3'>
                     <label>
                         Name:
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        Description:
-                        <input
-                            type="text"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        Price:
-                        <input
-                            type="number"
-                            value={price}
-                            onChange={(e) => setPrice(parseInt(e.target.value))}
+                            className='focus:outline-none rounded-lg h-[40px] p-3 text-black'
                         />
                     </label>
                     <label>
@@ -78,11 +65,11 @@ const AdminPage = () => {
                         />
                     </label>
                     <label>
-                        Image:
+                        Price:
                         <input
-                            type="text"
-                            value={imageUrl}
-                            onChange={(e) => setImageUrl(e.target.value)}
+                            type="number"
+                            value={price}
+                            onChange={(e) => setPrice(parseInt(e.target.value))}
                         />
                     </label>
                     <label>
@@ -93,6 +80,28 @@ const AdminPage = () => {
                             onChange={(e) => setCount(parseInt(e.target.value))}
                         />
                     </label>
+                    </div>
+                    <div className='flex flex-col'>
+                    <label>
+                        Description:
+                        <input
+                            type="text"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        Image:
+                        <input
+                            type="text"
+                            value={imageUrl}
+                            onChange={(e) => setImageUrl(e.target.value)}
+                        />
+                    </label>
+                    </div>
+                    </div>
+                    
+                   
                     <button type="submit">Add Food Item</button>
                 </form>
             </div>

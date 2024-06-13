@@ -30,15 +30,18 @@ const DeleteUser = () => {
     };
 
     return (
-        <div>
-            <h1>Delete User</h1>
-            <input
+        <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
+            <h1 className='text-white text-xl'>Delete User</h1>
+            <div><input
                 type="text"
                 placeholder="Enter user ID"
                 value={userId}
+                
                 onChange={(e) => setUserId(e.target.value)}
+                className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg'
             />
-            <button onClick={handleDeleteUser}>Delete User</button>
+            <button onClick={handleDeleteUser} className=' p-4 bg-inyellow text-black rounded-lg'>Delete User</button>
+            </div>
         </div>
     );
 };

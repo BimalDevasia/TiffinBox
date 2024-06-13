@@ -8,6 +8,7 @@ import { stripePromise } from "@/lib/stripe";
 import CartContext from "@/context/CartContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Cart = () => {
     const { addItemToCart, deleteItemFromCart, cart, setCart } = useContext(CartContext);
@@ -76,9 +77,19 @@ const Cart = () => {
             console.error("Error creating payment intent:", error);
         }
     };
+
+    const CurrentDate = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1; 
+        const year = date.getFullYear();
+        const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; 
+        const rmonth=monthsOfYear[month]
+        return(<>{day} {rmonth} {year}</>);
+    }      
     return (
         <>
-        <div className="bg-cart bg-cover w-screen h-screen bg-no-repeat bg-center">
+        <div className="bg-cart bg-cover w-screen min-h-screen bg-no-repeat bg-center">
             <section className="py-5 sm:py-7">
                 <div className="container max-w-screen-xl mx-auto px-4">
                     <h1 className="text-white text-4xl font-bold mt-9 ">MY ORDERS</h1>
@@ -87,13 +98,15 @@ const Cart = () => {
                     </h2>
                 </div>
             </section>
-
+            <div className="flex flex-row justify-center w-screen ">
+            <div className=" text-white mx-4 w-[1250px] rounded-tl-lg rounded-tr-lg bg-gradient-to-br from-first/90 to-second/30 px-5 py-2"> <h1 className="">NEW ORDERS</h1><div>{CurrentDate()}</div></div>
+            </div>
             {cart?.length > 0 && (
                 <section className="py-10">
                     <div className="container max-w-screen-xl mx-auto px-4">
                         <div className="flex flex-col md:flex-row gap-4">
                             <main className="md:w-3/4">
-                                <article className=" bg-black/50 shadow-sm text-white rounded mb-5 p-3 lg:p-5">
+                                <article className=" shadow-sm text-white rounded mb-5 p-3 lg:p-5">
                                     {cart?.map((cartItem: any) => (
                                         <div>
                                             <div className="flex flex-wrap lg:flex-row gap-5 mb-4">
@@ -126,7 +139,7 @@ const Cart = () => {
                                                         </button>
                                                         <input
                                                             type="number"
-                                                            className="focus:outline-none text-center w-full bg-black/70 font-semibold text-md   md:text-basecursor-default flex items-center text-white  outline-none custom-input-number"
+                                                            className="focus:outline-none text-center w-full bg-white font-semibold text-md   md:text-basecursor-default flex items-center text-black  outline-none custom-input-number"
                                                             name="custom-input-number"
                                                             value={cartItem.quantity}
                                                             readOnly
@@ -161,7 +174,7 @@ const Cart = () => {
                                                                 deleteItemFromCart(cartItem?.product)
                                                             }
                                                         >
-                                                            Remove
+                                                            <RiDeleteBin6Line className="w-[30px] h-[40px]" />
                                                         </a>
                                                     </div>
                                                 </div>
@@ -173,13 +186,13 @@ const Cart = () => {
                                 </article>
                             </main>
                             <aside className="md:w-1/4">
-                                <article className="border border-gray-500  bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
+                                <article className="border border-white  shadow-sm rounded mb-5 p-3 lg:p-5">
                                     <ul className="mb-5">
-                                        <li className="flex justify-between text-gray-600  mb-1">
+                                        <li className="flex justify-between text-white  mb-1">
                                             <span>Amount before Tax:</span>
                                             <span>₹{amountWithoutTax}</span>
                                         </li>
-                                        <li className="flex justify-between text-gray-600  mb-1">
+                                        <li className="flex justify-between text-white  mb-1">
                                             <span>Total Units:</span>
                                             <span className="text-inyellow">
                                                 {cart?.reduce(
@@ -189,11 +202,11 @@ const Cart = () => {
                                                 (Units)
                                             </span>
                                         </li>
-                                        <li className="flex justify-between text-gray-600  mb-1">
+                                        <li className="flex justify-between text-white mb-1">
                                             <span>TAX:</span>
                                             <span>₹{taxAmount}</span>
                                         </li>
-                                        <li className="text-lg font-bold border-t flex justify-between mt-3 pt-3">
+                                        <li className="text-lg font-bold text-white border-t flex justify-between mt-3 pt-3">
                                             <span>Total price:</span>
                                             <span>₹{totalAmount}</span>
                                         </li>
@@ -204,8 +217,8 @@ const Cart = () => {
                                     </a>
 
                                     <Link
-                                        href="/"
-                                        className="px-4 py-3 inline-block text-lg w-full text-center font-medium text-inyellow bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
+                                        href="menu"
+                                        className="px-4 py-3 inline-block text-lg w-full text-center font-medium text-white bg-red-700 hover:bg-red-600 shadow-sm border rounded-md "
                                     >
                                         Back to shop
                                     </Link>

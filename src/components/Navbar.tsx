@@ -4,10 +4,11 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 
 function Navbar() {
-  const data = [
+   var data = [
     { id: "Home", link: "/home" },
     { id: "Menu", link: "menu" },
     { id: "Transactions", link: "transaction" },
+    { id:"Cart",link:"cart"},
     { id: "Profile", link: "profile" },
     { id: "Login", link: "login" },
     { id: "About", link: "about" }
@@ -16,7 +17,8 @@ function Navbar() {
 
   const handleClick = (item: { id: string; link: string }) => {
     setActiveItem(item.id);
-    console.log(activeItem);
+    console.log(activeItem)
+
   }
 
   return (
@@ -38,4 +40,4 @@ function Navbar() {
   )
 }
 
-export default Navbar;
+export default Navbar ;
