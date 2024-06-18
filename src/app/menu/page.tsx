@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import Drink from '@/components/Drink';
-import Cards from '@/components/Cards';
+
 import Comment from '@/components/Comment';
 import { FoodItem } from '@/models/types';
 import CartContext from "@/context/CartContext";
@@ -110,8 +110,8 @@ function Page() {
       <div ref={drinkRef}>
         <Drink />
       </div>
-      <Cards />
-      <Comment />
+   
+     
     </>
   );
 }

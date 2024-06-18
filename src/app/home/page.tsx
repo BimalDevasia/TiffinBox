@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { Items } from '@/models/types';
 import Image from 'next/image';
+import Cards from '@/components/Cards';
 
 function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
@@ -62,6 +63,8 @@ function HomePage() {
           </div>
         ))}
       </div>
+      <Cards />
+      
     </ProtectedRoute>
   );
 }
