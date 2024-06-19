@@ -9,12 +9,18 @@ import CartContext from "@/context/CartContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { bouncy } from 'ldrs'
+
+
+
 
 const Cart = () => {
     const { addItemToCart, deleteItemFromCart, cart, setCart } = useContext(CartContext);
     const payref=useRef<HTMLDivElement>(null);
+    const [checkclick,setcheckclick]=useState(false)
     const [clientSecret, setClientSecret] = useState("");
     const router = useRouter();
+    bouncy.register()
     const increaseQty = (cartItem: any) => {
         const newQty = cartItem?.quantity + 1;
 
@@ -53,7 +59,7 @@ const Cart = () => {
 
     const totalAmount = (Number(amountWithoutTax) + Number(taxAmount)).toFixed(2);
     const handleContinue = async () => {
-
+            setcheckclick(true)
         const orderData = {
             items: cart,
             totalAmount: totalAmount,
@@ -71,6 +77,7 @@ const Cart = () => {
             if (response.ok) {
                 const { clientSecret } = await response.json();
                 setClientSecret(clientSecret);
+                setcheckclick(false)
             } else {
                 console.error("Failed to create payment intent");
             }
@@ -239,8 +246,8 @@ const Cart = () => {
                 </section>
             )}
             </div>
-            {clientSecret && (
-                <div ref={payref}>
+            {clientSecret?
+                (<div ref={payref}>
                 <Elements  stripe={stripePromise} options={{ clientSecret }}>
                     <CheckoutForm
                         clientSecret={clientSecret}
@@ -251,8 +258,13 @@ const Cart = () => {
                         router={router}
                     />
                 </Elements>
-                </div>
-            )}
+                </div> ): 
+                checkclick?<div className="absolute bg-black/90 top-0 h-screen w-screen
+                 text-white flex items-center justify-center ">
+                    <l-bouncy size="70" speed="1.75" color="white" ></l-bouncy>
+                   
+                    </div>:<></>
+            }
             
         </>
     );

@@ -74,7 +74,7 @@ const iconSelect=(item:any)=>{
 
     <div className='flex flex-row max-w-screen  overflow-y-auto'>
     
-        <div className='flex flex-row gap-4 z-0 items-center min-w-[250px] bg-gradient-to-b from-gray-500 to-black/80 h-screen '>
+        <div className='flex flex-row gap-4 z-0 items-center min-w-[250px] bg-gradient-to-b from-gray-500 to-black/80 min-h-screen '>
         <div className='relative flex flex-col z-10 items-center justify-center gap-5 bg-black/40 h-[60%] w-[20%] mix-blend-color-dodge border-r border-solid'>
             <div className='absolute w-full -top-7  skew-y-[35deg] bg-black/40  h-[50px] border-r border-solid border-t'></div>
             <div className='absolute w-full -bottom-7  skew-y-[-35deg] bg-black/40 h-[50px] border-r border-solid  border-b'></div>

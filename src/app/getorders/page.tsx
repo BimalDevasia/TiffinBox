@@ -31,7 +31,7 @@ const AllOrders = () => {
 
     return (
         <div className="container mx-auto py-8 w-[1288px] bg-black text-white min-h-screen pt-32">
-            <h1 className="text-3xl font-bold mb-6">All Orders</h1>
+            <h1 className="text-3xl font-bold mb-6 text-inyellow">ALL ORDERS</h1>
             <div className="mb-4">
                 <label htmlFor="search-date" className="mr-2">
                     Search by Date:
@@ -41,7 +41,7 @@ const AllOrders = () => {
                     type="date"
                     value={searchDate}
                     onChange={handleSearchDateChange}
-                    className="border rounded-md px-2 py-1"
+                    className="border rounded-md px-2 py-1 bg-ingrey"
                 />
             </div>
             {filteredOrders.length === 0 ? (
@@ -49,7 +49,7 @@ const AllOrders = () => {
             ) : (
                 <table className="w-full table-auto">
                     <thead>
-                        <tr>
+                        <tr className="bg-inyellow">
                             <th className="px-4 py-2">Order ID</th>
                             <th className="px-4 py-2">User ID</th>
                             <th className="px-4 py-2">Order Date</th>

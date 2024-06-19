@@ -25,7 +25,7 @@ const DeleteAccount = () => {
     };
 
     return (
-        <div>
+        <div className='bg-black text-white h-screen flex flex-col items-center justify-center' >
             <h1>Delete Account</h1>
             <p>Are you sure you want to delete your account? This action cannot be undone.</p>
             <button onClick={handleDeleteAccount}>Delete Account</button>
