@@ -1,10 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import Drink from '@/components/Drink';
-
-
-import { FoodItem } from '@/models/types';
+import React, { useState, useEffect } from 'react';
+import { DrinkItem, FoodItem } from '@/models/types';
 
 const foodTypes = [
     { id: 'BREAKFAST', point: 'breakfast' },
@@ -15,10 +12,9 @@ const foodTypes = [
 ];
 
 function Page() {
-
     const [check, setCheck] = useState('breakfast');
     const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
-    const drinkRef = useRef<HTMLDivElement>(null);
+    const [drinkItems, setDrinkItems] = useState<DrinkItem[]>([]);
 
     useEffect(() => {
         const fetchFoodItems = async () => {
@@ -34,19 +30,27 @@ function Page() {
         fetchFoodItems();
     }, []);
 
-    const handleClick = (point: any) => {
-        if (point !== 'drink') {
-            setCheck(point);
-        }
+    useEffect(() => {
+        const fetchDrinkItems = async () => {
+            try {
+                const response = await fetch('/api/drinks');
+                const data: DrinkItem[] = await response.json();
+                setDrinkItems(data);
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        };
 
-        if (point === 'drink') {
-            drinkRef.current?.scrollIntoView({ behavior: 'smooth' });
-            setCheck((prevCheck) => prevCheck);
-            point = check;
-        }
+        fetchDrinkItems();
+    }, []);
+
+    const handleClick = (point: string) => {
+        setCheck(point);
     };
 
     const filteredFoodItems = foodItems.filter((item) => item.category === check);
+    // const filteredDrinkItems = drinkItems.filter((item) => item.category === 'DRINKS');
+
     return (
         <>
             <div className="flex flex-col items-center w-screen bg-no-repeat bg-cover h-screen bg-menu text-white pt-10">
@@ -67,28 +71,41 @@ function Page() {
                     ))}
                 </div>
                 <div className="grid grid-cols-2 w-9/12 h-3/4 gap-6 overflow-y-scroll">
-                    {filteredFoodItems.map((item, id) => (
-                        <div key={id} className="box flex w-full">
-                            <div
-                                style={{ backgroundImage: `url(${item.imageUrl})` }}
-                                className="h-full w-[35%] bg-no-repeat bg-cover"
-                            ></div>
-                            <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7">
-                                <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second"></div>
-                                <p className="text-[25px]">{item.name}</p>
-                                <div className="flex gap-6 ">
-                                    <p className="text-[25px]">Count : {item.count}</p>
+                    {check === 'drink' ? (
+                        drinkItems.map((item, id) => (
+                            <div key={id} className="box flex w-full">
+                                <div
+                                    style={{ backgroundImage: `url(${item.imageUrl})` }}
+                                    className="h-full w-[35%] bg-no-repeat bg-cover"
+                                ></div>
+                                <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7">
+                                    <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second"></div>
+                                    <p className="text-[25px]">{item.name}</p>
+                                    <div className="flex gap-6 ">
+                                        <p className="text-[25px]">Count : {item.count}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))
+                    ) : (
+                        filteredFoodItems.map((item, id) => (
+                            <div key={id} className="box flex w-full">
+                                <div
+                                    style={{ backgroundImage: `url(${item.imageUrl})` }}
+                                    className="h-full w-[35%] bg-no-repeat bg-cover"
+                                ></div>
+                                <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7">
+                                    <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second"></div>
+                                    <p className="text-[25px]">{item.name}</p>
+                                    <div className="flex gap-6 ">
+                                        <p className="text-[25px]">Count : {item.count}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
-            <div ref={drinkRef}>
-                <Drink />
-            </div>
-
-
         </>
     );
 }
