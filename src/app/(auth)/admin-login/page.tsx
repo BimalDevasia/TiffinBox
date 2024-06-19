@@ -77,7 +77,7 @@ const AdminLogin: React.FC = () => {
       alert(`Error signing in: ${result.error}`);
     } else {
       console.log('User signed in:', result);
-      router.push('/home');
+      router.push('/admin');
     }
   };
   return (

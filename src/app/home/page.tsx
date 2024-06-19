@@ -5,6 +5,7 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import { Items } from '@/models/types';
 import Image from 'next/image';
 import Cards from '@/components/Cards';
+import Link from 'next/link';
 
 function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
@@ -59,12 +60,12 @@ function HomePage() {
             <Image src={item.link} alt='' width={300} height={100} className='w-full h-60 '></Image>
             <p className="text-center">{item.desp}</p>
             <p className="text-2xl"><span className="text-inyellow font-bold">PRICE :</span> {item.price} Rs</p>
-            <button type="submit" className="w-full  bg-inyellow hover:bg-yellow-600 transition-colors duration-300 h-10 text-black rounded-lg font-bold">ORDER NOW</button>
+            <button type="submit" className="w-full  bg-inyellow hover:bg-yellow-600 transition-colors duration-300 h-10 text-black rounded-lg font-bold"><Link href="/menu">ORDER NOW</Link></button>
           </div>
         ))}
       </div>
       <Cards />
-      
+
     </ProtectedRoute>
   );
 }

@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
                 if (isFoodItem) {
                     const product = await FoodItem.findOneAndUpdate(
                         { _id: item.product },
-                        { $inc: { count: -item.quantity } },
+                        { $inc: { count: item.quantity } },
                         { new: true }
                     );
 
@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
                 } else if (isDrinkItem) {
                     const product = await DrinkItem.findOneAndUpdate(
                         { _id: item.product },
-                        { $inc: { count: -item.quantity } },
+                        { $inc: { count: item.quantity } },
                         { new: true }
                     );
 
