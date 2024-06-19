@@ -21,8 +21,8 @@ const Orders = () => {
     }, []);
 
     return (
-        <div className="container mx-auto py-8">
-            <h1 className="text-3xl font-bold mb-6">Orders</h1>
+        <div className="container mx-auto py-8 bg-black h-full pt-20">
+            <h1 className="text-3xl font-bold mb-6 text-white">ORDERS</h1>
             {orders.length === 0 ? (
                 <p>You haven't placed any orders yet.</p>
             ) : (
@@ -30,7 +30,7 @@ const Orders = () => {
                     {orders.map((order) => (
                         <div
                             key={order._id}
-                            className="bg-white rounded-lg shadow-md p-6 flex flex-col"
+                            className="bg-white/40 rounded-lg shadow-md p-6 flex flex-col"
                         >
                             <h2 className="text-xl font-bold mb-2">Order #{order._id}</h2>
                             <p className="mb-2">
@@ -49,12 +49,13 @@ const Orders = () => {
                                                 />
                                                 <div>
                                                     <p className="font-bold">{item.name}</p>
-                                                    <p>
+                                                    <p className="text-[13px]">
                                                         Quantity: {item.quantity} - Price: ₹
                                                         {(item.price * item.quantity).toFixed(2)}
                                                     </p>
                                                 </div>
                                             </div>
+                                            <hr className="mt-2 "/>
                                         </li>
                                     ))}
                                 </ul>
