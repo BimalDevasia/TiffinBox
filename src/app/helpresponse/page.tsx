@@ -19,14 +19,15 @@ const HelpResponsePage = () => {
     };
 
     return (
-        <div>
-            <h1>Help Requests</h1>
-            <ul>
+        <div className="h-screen w-[1286px] bg-black text-white flex flex-col gap-10 justify-center items-center">
+            <h1 className="text-xl text-inyellow font-bold">HELP REQUESTS</h1>
+            <ul className="flex gap-5 flex-wrap w-[80%]">
                 {helpRequests.map((request) => (
-                    <li key={request._id}>
-                        <div>{request.userInput}</div>
-                        <div>User Email: {request.userEmail}</div>
+                    <div key={request._id} className="p-5 border flex flex-col items-center gap-6" >
+                        <div className="text-[15px] -m-5 p-3 mb-2 bg-ingrey rounded-sm">User Email: {request.userEmail}</div>
+                        <div className="py-5 px-2 bg-ingrey/30 rounded-sm w-[90%]">{request.userInput}</div>
                         <button
+                        className="p-3 w-[100px] bg-inyellow text-black cursor-pointer rounded-lg"
                             onClick={() =>
                                 openGmailCompose(
                                     request.userEmail,
@@ -37,7 +38,7 @@ const HelpResponsePage = () => {
                         >
                             Respond
                         </button>
-                    </li>
+                    </div>
                 ))}
             </ul>
         </div>

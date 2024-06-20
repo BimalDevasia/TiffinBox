@@ -68,7 +68,13 @@ const Profile = () => {
 
     return (
 
+
         <div className='flex flex-row max-w-screen w-screen overflow-y-auto'>
+
+
+       
+
+        
 
             <div className='flex flex-row gap-4 z-0 items-center min-w-[250px] bg-gradient-to-b from-gray-500 to-black/80 min-h-screen '>
                 <div className='relative flex flex-col z-10 items-center justify-center gap-5 bg-black/40 h-[60%] w-[20%] mix-blend-color-dodge border-r border-solid'>

@@ -116,7 +116,7 @@ const AdminLogin: React.FC = () => {
           <div className='w-1/3 hidden med:block'>
 
             <h6 className='text-2xl mb-3 font-bebasneue'>WELCOME</h6>
-            <p className='text-5xl font-bebasneue'>is simply dummy <br /> text of the <br />printing and lorem <br />ipsum industry</p>
+            <p className='text-5xl font-bebasneue'>Log in  <br /> to explore delicious <br />meals and seamless booking <br />at your fingertips!</p>
 
           </div >
 

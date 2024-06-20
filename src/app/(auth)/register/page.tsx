@@ -107,9 +107,7 @@ const Register: React.FC = () => {
                     <div className="w-1/3">
                         <h6 className="text-2xl mb-3 font-bebasneue">WELCOME</h6>
                         <p className="text-5xl font-bebasneue">
-                            is simply dummy <br /> text of the <br />printing and lorem <br />
-                            ipsum industry
-                        </p>
+                        Log in  <br /> to explore delicious <br />meals and seamless booking <br />at your fingertips!</p>
                     </div>
 
                     <form className="flex flex-col w-7/12 gap-10" onSubmit={handleSubmit}>
