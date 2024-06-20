@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { Order } from "@/models/types";
+import Link from "next/link";
 
 const AllOrders = () => {
     const [orders, setOrders] = useState<Order[]>([]);
@@ -59,7 +60,7 @@ const AllOrders = () => {
                     <tbody>
                         {filteredOrders.map((order) => (
                             <tr key={order._id}>
-                                <td className="border px-4 py-2">{order._id}</td>
+                                <td className="border px-4 py-2"> <Link href={`/getorders/${order._id}?orderId=${order._id}`}>{order._id}</Link></td>
                                 <td className="border px-4 py-2">{order.userId}</td>
                                 <td className="border px-4 py-2">
                                     {new Date(order.createdAt).toLocaleDateString()}
