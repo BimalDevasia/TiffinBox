@@ -16,10 +16,8 @@ export async function GET(req: NextRequest) {
 
         await connectMongo();
 
-        // Fetch orders for the user
         const orders = await Order.find({ userId });
 
-        // Extract amount and date from the orders
         const transactions = orders.map((order) => ({
             amount: order.totalAmount,
             date: order.createdAt,

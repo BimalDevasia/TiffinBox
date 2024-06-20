@@ -1,4 +1,3 @@
-// app/models/foodItem.ts
 import mongoose from 'mongoose';
 
 const foodItemSchema = new mongoose.Schema({

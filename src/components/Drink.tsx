@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { DrinkItem } from '@/models/types';
-
 import {
   Carousel,
   CarouselContent,
@@ -8,8 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import drinks from "./drinks"
 import CartContext from '@/context/CartContext';
+
 function Drink() {
   const { addItemToCart } = useContext(CartContext);
   const [drinkItems, setDrinkItems] = useState<DrinkItem[]>([]);
@@ -23,10 +22,8 @@ function Drink() {
         console.error('An error occurred:', error);
       }
     };
-
     fetchDrinkItems();
   }, []);
-
 
   return (
     <div className='h-screen w-screen bg-drink bg-cover bg-no-repeat object-cover flex flex-col gap-5 items-center justify-center text-white'>
@@ -38,8 +35,7 @@ function Drink() {
             <CarouselItem
               key={index}
               className='group relative flex justify-center basis-1/4 bg-no-repeat bg-cover bg-center rounded-lg'
-              style={{ backgroundImage: `url(${item.imageUrl})` }}
-            >
+              style={{ backgroundImage: `url(${item.imageUrl})` }}>
               <div className="absolute -mx-3 tracking-widest -rotate-90 text-2xl text-white left-0 top-[50%]">
                 {item.name}
               </div>
@@ -62,8 +58,7 @@ function Drink() {
                         count: item.count,
                       });
                     }
-                  }}
-                >
+                  }}>
                   ORDER NOW
                 </button>
               </div>

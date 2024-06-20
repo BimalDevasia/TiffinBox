@@ -3,7 +3,6 @@ import User from '@/models/userSchema';
 import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 
-// admin.ts
 export async function POST(req: NextRequest) {
     const { email, password } = await req.json();
 
@@ -17,7 +16,6 @@ export async function POST(req: NextRequest) {
             });
         }
 
-        // Check if the user is an admin
         if (admin.role !== 'admin') {
             return NextResponse.json({ message: 'You are not an admin' }, {
                 status: 403

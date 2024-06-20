@@ -23,10 +23,9 @@ export async function DELETE(req: NextRequest) {
             return NextResponse.json({ error: 'User not found' }, { status: 404 });
         }
 
-        // Destroy the session after deleting the user
         const response = NextResponse.json({ message: 'User deleted successfully' }, { status: 200 });
-        response.cookies.set('session', '', { maxAge: 0 }); // Clear the session cookie
-        response.headers.set('Location', '/login'); // Set the redirect URL
+        response.cookies.set('session', '', { maxAge: 0 });
+        response.headers.set('Location', '/login');
 
         return response;
     } catch (error) {

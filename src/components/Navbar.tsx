@@ -1,4 +1,5 @@
 "use client"
+
 import Image from 'next/image'
 import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
@@ -42,11 +43,7 @@ function Navbar() {
     setnonav(true)
   },[pathname]);
   
-
-
-
   return (
-    
     <>
     {nonav && <nav className='flex justify-center z-50'>
         <Image width={0} height={0} alt='' src={"/logo.svg"} className='absolute z-50 w-10 left-20 top-5'></Image>
@@ -61,7 +58,6 @@ function Navbar() {
           ))}
         </div>
       </nav>}
-      
     </>
   )
 }

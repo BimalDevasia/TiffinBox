@@ -28,18 +28,13 @@ export const CartProvider = ({ children }) => {
     const addItemToCart = async ({ product, name, desp, price, image, count, quantity = 1 }) => {
         try {
             const item = { product, name, desp, price, image, count, quantity };
-
-            // Check if the item already exists in the cart
             const existingItemIndex = cart.findIndex(cartItem => cartItem.product === item.product);
-
             if (existingItemIndex !== -1) {
-                // Item already exists, update the quantity
                 const updatedCart = [...cart];
                 updatedCart[existingItemIndex].quantity += quantity;
                 setCart(updatedCart);
                 console.log('Item already exists in the cart. Quantity updated.');
             } else {
-                // Item doesn't exist, add it to the cart
                 const response = await fetch('/api/cart', {
                     method: 'POST',
                     headers: {

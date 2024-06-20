@@ -1,5 +1,5 @@
-// ResetPassword.tsx
 "use client"
+
 import { useState } from 'react';
 import TitleBar from "@/components/TitleBar";
 import { useRouter } from 'next/navigation';

@@ -30,7 +30,6 @@ function HomePage() {
       setCurrentTime(timeText);
     }, 1000);
 
-    // Fetch items from the API
     const fetchItems = async () => {
       try {
         const response = await fetch('/api/home');
@@ -65,7 +64,6 @@ function HomePage() {
         ))}
       </div>
       <Cards />
-
     </ProtectedRoute>
   );
 }

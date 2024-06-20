@@ -17,7 +17,7 @@ function HomePage() {
       const hours = now.getHours();
       let timeText = '';
 
-      if (hours >= 18 && hours <24) {
+      if (hours >= 18 && hours < 24) {
         timeText = "Breakfast";
       } else if (hours >= 0 && hours < 10) {
         timeText = "Lunch";
@@ -30,7 +30,6 @@ function HomePage() {
       setCurrentTime(timeText);
     }, 1000);
 
-    // Fetch items from the API
     const fetchItems = async () => {
       try {
         const response = await fetch('/api/home');
@@ -65,7 +64,6 @@ function HomePage() {
         ))}
       </div>
       <Cards />
-
     </ProtectedRoute>
   );
 }
