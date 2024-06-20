@@ -36,7 +36,7 @@ function Navbar() {
     else
     setActiveItem("/")
 
-    if(pathname==="/admin")
+    if(pathname==="/admin" || pathname==="/login"|| pathname==="/admin-login"||pathname==="/register")
       setnonav(false)
     else
     setnonav(true)
