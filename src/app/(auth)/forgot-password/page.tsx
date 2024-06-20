@@ -1,4 +1,5 @@
 "use client"
+
 import { useState } from 'react';
 import TitleBar from "@/components/TitleBar";
 import { useRouter } from 'next/navigation';
@@ -21,7 +22,6 @@ const ForgotPassword = () => {
       });
       const data = await response.json();
       if (data.success) {
-        // Navigate to the reset password page if the email is found
         router.push('/reset-password');
       } else {
         setMessage(data.message);

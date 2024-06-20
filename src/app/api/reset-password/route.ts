@@ -1,4 +1,3 @@
-// /api/reset-password.ts
 import { NextResponse } from 'next/server';
 import User from '@/models/userSchema';
 import connectMongoDB from '@/lib/mongodb';

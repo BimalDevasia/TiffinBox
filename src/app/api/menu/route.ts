@@ -1,4 +1,3 @@
-// app/api/foodItems/route.ts
 import { NextResponse } from 'next/server';
 import FoodItem from '@/models/foodItem';
 import connectMongoDB from '@/lib/mongodb';

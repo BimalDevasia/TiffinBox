@@ -1,6 +1,8 @@
 "use client"
+
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 const DeleteAccount = () => {
     const router = useRouter();
@@ -13,7 +15,7 @@ const DeleteAccount = () => {
 
             if (response.ok) {
                 alert('Account deleted successfully');
-                router.push('/login'); // Redirect to the home page or any other desired page
+                router.push('/login');
             } else {
                 const { error } = await response.json();
                 alert(`Error deleting account: ${error}`);
@@ -25,11 +27,13 @@ const DeleteAccount = () => {
     };
 
     return (
-        <div className='bg-black text-white h-screen flex flex-col items-center gap-3 justify-center text-center' >
-            <h1 className='text-[40px] text-inyellow '>Delete Account</h1>
-            <p className='text-[20px]'>Are you sure you want to delete your account?<br /> This action cannot be undone.</p>
-            <button onClick={handleDeleteAccount} className='bg-inyellow p-3 rounded-lg text-black'>Delete Account</button>
-        </div>
+        <ProtectedRoute>
+            <div className='bg-black text-white h-screen flex flex-col items-center gap-3 justify-center text-center' >
+                <h1 className='text-[40px] text-inyellow '>Delete Account</h1>
+                <p className='text-[20px]'>Are you sure you want to delete your account?<br /> This action cannot be undone.</p>
+                <button onClick={handleDeleteAccount} className='bg-inyellow p-3 rounded-lg text-black'>Delete Account</button>
+            </div>
+        </ProtectedRoute>
     );
 };
 

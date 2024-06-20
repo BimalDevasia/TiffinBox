@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -78,7 +79,6 @@ const Register: React.FC = () => {
                     </p>
                 </div>
             </div>
-
             <div className="flex flex-col items-center absolute right-0 gap-10 pt-12 w-[79%] h-screen rounded-3xl z-10 bg-gradient-to-bl from-[rgb(0, 0, 0, 1)] to-[rgba(38, 34, 34, 1)] text-white">
                 <div className="flex w-9/12 items-center justify-between pt-6 text-inyellow">
                     <div className="flex gap-3">
@@ -102,14 +102,12 @@ const Register: React.FC = () => {
                         </Link>
                     </div>
                 </div>
-
                 <div className="flex w-9/12 justify-between ">
                     <div className="w-1/3">
                         <h6 className="text-2xl mb-3 font-bebasneue">WELCOME</h6>
                         <p className="text-5xl font-bebasneue">
-                        Log in  <br /> to explore delicious <br />meals and seamless booking <br />at your fingertips!</p>
+                            Log in  <br /> to explore delicious <br />meals and seamless booking <br />at your fingertips!</p>
                     </div>
-
                     <form className="flex flex-col w-7/12 gap-10" onSubmit={handleSubmit}>
                         <input
                             className="h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg"
@@ -121,7 +119,6 @@ const Register: React.FC = () => {
                             onChange={handleInputChange}
                             required
                         />
-
                         <input
                             className="h-20 focus:outline-none bg-ingrey px-[3rem] rounded-lg"
                             placeholder="Email or Phone Number"
@@ -132,7 +129,6 @@ const Register: React.FC = () => {
                             onChange={handleInputChange}
                             required
                         />
-
                         <div className="relative">
                             <input
                                 className="h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg"
@@ -152,7 +148,6 @@ const Register: React.FC = () => {
                                 alt="Toggle Password Visibility"
                             />
                         </div>
-
                         <div className="relative">
                             <input
                                 className="h-20 w-full focus:outline-none bg-ingrey px-[3rem] rounded-lg"
@@ -172,7 +167,6 @@ const Register: React.FC = () => {
                                 alt="Toggle Password Visibility"
                             />
                         </div>
-
                         <div className="flex gap-5">
                             <input
                                 className="w-4 accent-ingrey focus:outline-none cursor-pointer"
@@ -191,7 +185,6 @@ const Register: React.FC = () => {
                                 </p>
                             </label>
                         </div>
-
                         <div className="flex justify-between">
                             <button
                                 type="submit"

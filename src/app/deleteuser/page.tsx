@@ -1,6 +1,8 @@
 "use client"
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 const DeleteUser = () => {
     const [userId, setUserId] = useState('');
@@ -18,8 +20,7 @@ const DeleteUser = () => {
 
             if (response.ok) {
                 alert('User deleted successfully');
-                router.push('/login'); // Redirect to the home page or any other desired page
-            } else {
+                router.push('/login');
                 const { error } = await response.json();
                 alert(`Error deleting user: ${error}`);
             }
@@ -30,19 +31,21 @@ const DeleteUser = () => {
     };
 
     return (
-        <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
-            <h1 className='text-white text-xl'>Delete User</h1>
-            <div><input
-                type="text"
-                placeholder="Enter user ID"
-                value={userId}
-                
-                onChange={(e) => setUserId(e.target.value)}
-                className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg bg-ingrey text-white'
-            />
-            <button onClick={handleDeleteUser} className=' p-4 bg-inyellow text-black rounded-lg'>Delete User</button>
+        <ProtectedRoute>
+            <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
+                <h1 className='text-white text-xl'>Delete User</h1>
+                <div><input
+                    type="text"
+                    placeholder="Enter user ID"
+                    value={userId}
+
+                    onChange={(e) => setUserId(e.target.value)}
+                    className='mr-5 focus:outline-none w-[400px] h-[54px] p-4 rounded-lg bg-ingrey text-white'
+                />
+                    <button onClick={handleDeleteUser} className=' p-4 bg-inyellow text-black rounded-lg'>Delete User</button>
+                </div>
             </div>
-        </div>
+        </ProtectedRoute>
     );
 };
 

@@ -31,10 +31,8 @@ export default async function RootLayout({
         <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
       </head>
       <body className={`${bebas.className}`}>
-
         <ClientSessionProvider session={session || adminSession}>
           <GlobalProvider>
-            {/* Render different layouts based on the session */}
             {adminSession ? (
               <AdminLayout>{children}</AdminLayout>
             ) : (
@@ -45,13 +43,11 @@ export default async function RootLayout({
             )}
           </GlobalProvider>
         </ClientSessionProvider>
-
       </body>
     </html>
   );
 }
 
-// Create an AdminLayout component
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>

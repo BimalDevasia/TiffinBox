@@ -83,81 +83,80 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     };
 
     return (
-        <form onSubmit={handleSubmit}className='relative flex flex-col gap-5 bg-payment bg-no-repeat bg-cover  bg- justify-center items-center w-screen h-screen bg-black text-white'>
+        <form onSubmit={handleSubmit} className='relative flex flex-col gap-5 bg-payment bg-no-repeat bg-cover  bg- justify-center items-center w-screen h-screen bg-black text-white'>
             <div className='absolute w-full h-full bg-black/50'></div>
             <h1 className='text-2xl text-inyellow font-bold mb-20 z-10'>PAYMENT DETAILS</h1>
             <div className='flex flex-row gap-5 z-10'>
-            <div className='flex flex-col gap-3'>
-                
-            <div className='flex flex-row gap-3'>
-                <label htmlFor="customerName">Customer Name</label>
-                <input
-                    type="text"
-                    id="customerName"
-                    value={customerName}
-                    onChange={(e) => setCustomerName(e.target.value)}
-                    className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
-                    required
-                />
-            </div>
-            <div className='flex flex-row gap-3'>
-                <label htmlFor="customerLine">Customer Line</label>
-                <input
-                    type="text"
-                    id="customerLine"
-                    value={customerLine}
-                    onChange={(e) => setCustomerLine(e.target.value)}
-                    className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
-                    required
-                />
-            </div>
-            <div className='flex flex-row gap-3'>
-                <label htmlFor="customerPost">Customer Post</label>
-                <input
-                    type="text"
-                    id="customerPost"
-                    value={customerPost}
-                    onChange={(e) => setCustomerPost(e.target.value)}
-                    className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
-                    required
-                />
-            </div>
-            </div>
-            <div className='flex flex-col gap-3'>
-            <div className='flex flex-row gap-3'>
-                <label htmlFor="customerCity">Customer City</label>
-                <input
-                    type="text"
-                    id="customerCity"
-                    value={customerCity}
-                    onChange={(e) => setCustomerCity(e.target.value)}
-                    className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
-                    required
-                />
-            </div>
-            <div className='flex flex-row gap-3'>
-                <label htmlFor="customerState">Customer State</label>
-                <input
-                    type="text"
-                    id="customerState"
-                    value={customerState}
-                    onChange={(e) => setCustomerState(e.target.value)}
-                    className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
-                    required
-                />
-            </div>
-            <div className='flex flex-row gap-3'>
-                <label htmlFor="customerCountry">Customer Country</label>
-                <input
-                    type="text"
-                    id="customerCountry"
-                    value={customerCountry}
-                    onChange={(e) => setCustomerCountry(e.target.value)}
-                    className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
-                    required
-                />
-            </div>
-            </div>
+                <div className='flex flex-col gap-3'>
+                    <div className='flex flex-row gap-3'>
+                        <label htmlFor="customerName">Customer Name</label>
+                        <input
+                            type="text"
+                            id="customerName"
+                            value={customerName}
+                            onChange={(e) => setCustomerName(e.target.value)}
+                            className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
+                            required
+                        />
+                    </div>
+                    <div className='flex flex-row gap-3'>
+                        <label htmlFor="customerLine">Customer Line</label>
+                        <input
+                            type="text"
+                            id="customerLine"
+                            value={customerLine}
+                            onChange={(e) => setCustomerLine(e.target.value)}
+                            className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
+                            required
+                        />
+                    </div>
+                    <div className='flex flex-row gap-3'>
+                        <label htmlFor="customerPost">Customer Post</label>
+                        <input
+                            type="text"
+                            id="customerPost"
+                            value={customerPost}
+                            onChange={(e) => setCustomerPost(e.target.value)}
+                            className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
+                            required
+                        />
+                    </div>
+                </div>
+                <div className='flex flex-col gap-3'>
+                    <div className='flex flex-row gap-3'>
+                        <label htmlFor="customerCity">Customer City</label>
+                        <input
+                            type="text"
+                            id="customerCity"
+                            value={customerCity}
+                            onChange={(e) => setCustomerCity(e.target.value)}
+                            className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
+                            required
+                        />
+                    </div>
+                    <div className='flex flex-row gap-3'>
+                        <label htmlFor="customerState">Customer State</label>
+                        <input
+                            type="text"
+                            id="customerState"
+                            value={customerState}
+                            onChange={(e) => setCustomerState(e.target.value)}
+                            className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
+                            required
+                        />
+                    </div>
+                    <div className='flex flex-row gap-3'>
+                        <label htmlFor="customerCountry">Customer Country</label>
+                        <input
+                            type="text"
+                            id="customerCountry"
+                            value={customerCountry}
+                            onChange={(e) => setCustomerCountry(e.target.value)}
+                            className='h-[35px] rounded-lg bg-white/60 text-black p-3  focus:outline-none'
+                            required
+                        />
+                    </div>
+                </div>
             </div>
             <CardElement className=' w-[800px] border-2 border-dashed p-5 z-10'
                 options={{
@@ -173,15 +172,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                             color: '#9e2146',
                         },
                     },
-                }}
-            />
-            
+                }} />
+
             {error && <div style={{ color: 'red' }}>{error}</div>}
             <button
                 type="submit"
                 disabled={!stripe || processing}
-                className="px-4 z-10 py-3 mb-2 inline-block text-lg w-[200px] text-center font-medium text-black bg-inyellow/80 border border-transparent rounded-md hover:bg-inyellow cursor-pointer"
-            >
+                className="px-4 z-10 py-3 mb-2 inline-block text-lg w-[200px] text-center font-medium text-black bg-inyellow/80 border border-transparent rounded-md hover:bg-inyellow cursor-pointer">
                 {processing ? 'Processing...' : 'Pay Now'}
             </button>
         </form>

@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     try {
         const paymentIntent = await stripe.paymentIntents.create({
             amount: stripeAmount,
-            currency: 'inr', // Change the currency code to 'inr' for Indian Rupees
+            currency: 'inr',
             automatic_payment_methods: { enabled: true },
             description: 'Export of digital goods',
             metadata: {

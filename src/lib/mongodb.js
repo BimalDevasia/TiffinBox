@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+
 const connection = {}
+
 const connectMongoDB = async () => {
     try {
         if (connection.isConnected) {
@@ -13,4 +15,5 @@ const connectMongoDB = async () => {
         console.log("Error occured connecting to mongodb", error.message);
     }
 }
+
 export default connectMongoDB
