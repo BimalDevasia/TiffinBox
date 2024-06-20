@@ -30,7 +30,7 @@ const DeleteItem = () => {
     return (
         <ProtectedRoute>
             <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
-                <h2 className='text-white text-xl'>Delete Food Item</h2>
+                <h2 className='text-inyellow text-xl'>Delete Food Item</h2>
                 <div>
                     <input
                         type="text"

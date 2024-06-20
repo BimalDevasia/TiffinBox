@@ -32,7 +32,7 @@ const DeleteDrink = () => {
     return (
         <ProtectedRoute>
             <div className='bg-black w-[1288px] h-screen flex flex-col gap-5 justify-center items-center'>
-                <h1 className='text-white text-xl'>Delete Drink</h1>
+                <h1 className='text-inyellow text-xl'>Delete Drink</h1>
                 <form onSubmit={handleSubmit} className='flex flex-row'>
                     <div>
 

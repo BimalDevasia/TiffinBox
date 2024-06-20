@@ -120,9 +120,7 @@ function Page() {
                       type="submit"
                       className="group-hover:bg-inyellow/100 bg-inyellow/40 rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]"
                       onClick={() => {
-                        if (item.count < 0) {
-                          alert('Out of Stock');
-                        } else {
+                       
                           addItemToCart({
                             product: item._id,
                             name: item.name,
@@ -131,7 +129,7 @@ function Page() {
                             image: item.imageUrl,
                             count: item.count,
                           });
-                        }
+                        
                       }}>
                       BUY
                     </button>

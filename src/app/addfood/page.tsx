@@ -43,7 +43,7 @@ const AdminPage = () => {
         <ProtectedRoute>
             <div className='flex bg-black h-screen w-[80rem]'>
                 <div className='items-center justify-center my-10 text-white flex flex-col gap-5 w-full'>
-                    <h1 className='text-xl font-bold'>ADD FOOD ITEMS</h1>
+                    <h1 className='text-xl font-bold text-inyellow'>ADD FOOD ITEMS</h1>
                     <form onSubmit={handleSubmit} className='flex flex-col justify-center gap-5 items-center '>
                         <div className='flex flex-row gap-5 w-2/3'>
                             <div className='flex flex-col gap-3'>

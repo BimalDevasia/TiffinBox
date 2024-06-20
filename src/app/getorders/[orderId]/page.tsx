@@ -50,7 +50,7 @@ const OrderDetails = () => {
 
     return (
         <ProtectedRoute>
-            <div className="container mx-auto py-8 w-[1288px] bg-black text-white min-h-screen pt-32">
+            <div className=" px-20 py-8 w-screen bg-black text-white min-h-screen pt-32">
                 <h1 className="text-3xl font-bold mb-6 text-inyellow">Order Details</h1>
                 <p>Order ID: {orderData._id}</p>
                 <p>User ID: {orderData.userId}</p>
