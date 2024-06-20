@@ -136,17 +136,8 @@ const AdminLogin: React.FC = () => {
 
 
           </form>
-
-
-
         </div>
-
       </div>
-
-
-
-
-
     </div>
   )
 }
