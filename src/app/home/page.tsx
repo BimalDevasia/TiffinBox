@@ -17,11 +17,11 @@ function HomePage() {
       const hours = now.getHours();
       let timeText = '';
 
-      if (hours >= 0 && hours < 12) {
+      if (hours >= 18 && hours < 24) {
         timeText = "Breakfast";
-      } else if (hours >= 12 && hours < 15) {
+      } else if (hours >= 0 && hours < 10) {
         timeText = "Lunch";
-      } else if (hours >= 15 && hours < 19) {
+      } else if (hours >= 10 && hours < 14) {
         timeText = "Tea";
       } else {
         timeText = "Dinner";
@@ -51,7 +51,7 @@ function HomePage() {
         <div className="absolute bg-black/30 w-full h-full"></div>
         <div className="flex flex-col gap-3 text-white z-10">
           <p className="font-bold">WHAT TIME IS IT <span className="text-inyellow">?</span></p>
-          <p className="font-bold text-6xl">IT'S <span className="text-inyellow">{currentTime}</span><br />TIME </p>
+          <p className="font-bold text-6xl">ORDER <span className="text-inyellow">{currentTime}</span><br />NOW </p>
         </div>
         {items.map((item: Items, index) => (
           <div key={index} className=" relative flex flex-col justify-center  gap-3 z-10 text-white bg-white/15 items-center w-1/5 border-solid border-white border-[1px] rounded-lg p-4">
