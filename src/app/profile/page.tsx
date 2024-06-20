@@ -9,6 +9,8 @@ import { IoFastFoodSharp } from "react-icons/io5";
 import Logout from '@/components/logout';
 import DeleteAccount from '../deactivate/page';
 import Orders from '../orders/page';
+import { FaHandsHelping } from "react-icons/fa";
+import HelpPage from '../help/page';
 
 import TitleBar from "@/components/TitleBar"
 const Profile = () => {
@@ -27,13 +29,15 @@ const Profile = () => {
 
     const items1=[{id:"PROFILE"},
                  {id:"DEACTIVATE"},
-                 {id:"ORDERS"}
+                 {id:"ORDERS"},
+                 {id:"HELP REQUEST"}
                  
     ]
 
     const items2=[{id:"PROFILE"},
                  {id:"DEACTIVATE"},
                  {id:"ORDERS"},
+                 {id:"HELP REQUEST"}
                
 ]
 
@@ -44,6 +48,8 @@ const iconSelect=(item:any)=>{
         return <AiOutlineUserDelete className={`${activeItem===item?"text-inyellow ":"text-white"} w-[40px] h-[40px]`}/>
     if(item==="ORDERS")
         return <IoFastFoodSharp className={`${activeItem===item?"text-inyellow ":"text-white"} w-[40px] h-[40px]`}/>
+    if(item==="HELP REQUEST")
+        return <FaHandsHelping className={`${activeItem===item?"text-inyellow ":"text-white"} w-[40px] h-[40px]`}/>
    
 }
 
@@ -82,6 +88,7 @@ const iconSelect=(item:any)=>{
                     {activeItem=="PROFILE"&&<Logout/>}
                     {activeItem==="DEACTIVATE"&&<DeleteAccount/>}
                     {activeItem==="ORDERS"&&<Orders/>}
+                    {activeItem==="HELP REQUEST"&&<HelpPage/>}
                    
              </div>
         </div>

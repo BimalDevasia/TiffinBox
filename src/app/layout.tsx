@@ -27,7 +27,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
+      </head>
       <body className={`${bebas.className}`}>
 
         <ClientSessionProvider session={session || adminSession}>

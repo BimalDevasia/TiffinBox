@@ -18,7 +18,7 @@ function Logout() {
   return (
 
          <div className='h-screen relative flex flex-col bg-black font-bebasneue'>
-            <TitleBar></TitleBar>
+           
             <div className="flex flex-col gap-3 items-center justify-center text-white flex-grow">
                 <div className='flex gap-5 items-center'>Name   <div className='w-60 bg-ingrey h-10 p-2 rounded-lg'></div></div>
                 <div><button onClick={handleSignOut} className='w-32 bg-inyellow p-2 text-black rounded-lg cursor-pointer '>Sign Out</button></div>

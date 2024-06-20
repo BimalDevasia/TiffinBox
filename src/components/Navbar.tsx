@@ -1,7 +1,8 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
    var data = [
@@ -10,21 +11,39 @@ function Navbar() {
     { id: "Transactions", link: "transaction" },
     { id:"Cart",link:"cart"},
     { id: "Profile", link: "profile" },
-    { id: "Login", link: "login" },
     { id: "About", link: "about" }
   ];
   const [activeItem, setActiveItem] = useState("/");
 
   const handleClick = (item: { id: string; link: string }) => {
     setActiveItem(item.id);
-    console.log(activeItem)
-
   }
+
+  const pathname = usePathname();
+  useEffect(()=>{
+    if(pathname==="/home")
+      setActiveItem("Home")
+    else if(pathname==="/menu")
+      setActiveItem("Menu")
+    else if(pathname==="/transaction")
+      setActiveItem("Transactions")
+    else if(pathname==="/cart")
+      setActiveItem("Cart")
+    else if(pathname==="/profile")
+      setActiveItem("Profile")
+    else if(pathname==="/about")
+      setActiveItem("About")
+    else
+    setActiveItem("/")
+  },[pathname]);
+  
+
+
 
   return (
     <>
       <nav className='flex justify-center z-50'>
-        <Image width={0} height={0} alt='' src={"/item.png"} className='absolute z-50 w-7 left-20 top-5'></Image>
+        <Image width={0} height={0} alt='' src={"/logo.svg"} className='absolute z-50 w-10 left-20 top-5'></Image>
         <div className='fixed flex gap-16 mt-5 z-50 text-[18px] text-white'>
           {data.map((item) => (
             <Link key={item.id} href={item.link} onClick={() => handleClick(item)}>

@@ -70,21 +70,22 @@ function Page() {
         </div>
         <div className="grid grid-cols-2 w-9/12 h-3/4 gap-6 overflow-y-scroll">
           {filteredFoodItems.map((item, id) => (
-            <div key={id} className="box flex w-full">
+            <div key={id} className="box flex w-full max-h-[250px] rounded-lg">
               <div
                 style={{ backgroundImage: `url(${item.imageUrl})` }}
-                className="h-full w-[35%] bg-no-repeat bg-cover"
+                className="h-full w-[35%] bg-no-repeat bg-cover bg-center rounded-l-lg"
               ></div>
-              <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7">
-                <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second"></div>
+              <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-r-lg backdrop-blur filter px-5 py-7">
+                <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-r-lg bg-gradient-to-b from-first to-second"></div>
                 <p className="text-[25px]">{item.name}</p>
                 <p>{item.description}</p>
                 <div className="flex gap-6 ">
-                  <p className="text-[25px]">Price : {item.price}₹</p>
+                  <p className="text-[25px]">Price : ₹{item.price}</p>
                   <button
                     type="submit"
                     className="group-hover:bg-inyellow/100 bg-inyellow/40 rounded-lg w-[10rem] text-black h-10 font-bold text-[20px]"
                     onClick={() => {
+
                       if (item.count < 0) {
                         alert('Out of Stock');
                       } else {
@@ -96,9 +97,9 @@ function Page() {
                           image: item.imageUrl,
                           count: item.count,
                         });
+
                       }
-                    }}
-                  >
+                    }}>
                     BUY
                   </button>
                 </div>
@@ -110,8 +111,8 @@ function Page() {
       <div ref={drinkRef}>
         <Drink />
       </div>
-   
-     
+
+
     </>
   );
 }
