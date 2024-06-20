@@ -64,7 +64,7 @@ const AllOrders = () => {
                                 <td className="border px-4 py-2">
                                     {new Date(order.createdAt).toLocaleDateString()}
                                 </td>
-                                <td className="border px-4 py-2">${order.totalAmount.toFixed(2)}</td>
+                                <td className="border px-4 py-2">₹{order.totalAmount.toFixed(2)}</td>
                             </tr>
                         ))}
                     </tbody>

@@ -53,8 +53,8 @@ function Page() {
 
     return (
         <>
-            <div className="flex flex-col items-center w-screen bg-no-repeat bg-cover h-screen bg-menu text-white pt-10">
-                <div className="absolute h-full w-full top-0 bg-black/30 -z-10"></div>
+            <div className="flex flex-col items-center bg-no-repeat bg-cover w-[1286px] h-screen bg-menu text-white pt-10">
+                <div className="absolute h-full w-full top-0 left-0 bg-black/30 -z-10"></div>
                 <h1 className="font-poppins font-extrabold text-[40px] mt-3 mb-5">
                     Analytics
                 </h1>
@@ -73,10 +73,10 @@ function Page() {
                 <div className="grid grid-cols-2 w-9/12 h-3/4 gap-6 overflow-y-scroll">
                     {check === 'drink' ? (
                         drinkItems.map((item, id) => (
-                            <div key={id} className="box flex w-full">
+                            <div key={id} className="box flex w-full max-h-[260px]">
                                 <div
                                     style={{ backgroundImage: `url(${item.imageUrl})` }}
-                                    className="h-full w-[35%] bg-no-repeat bg-cover"
+                                    className="h-full w-[35%] bg-no-repeat bg-cover bg-center"
                                 ></div>
                                 <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7">
                                     <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second"></div>
@@ -89,10 +89,10 @@ function Page() {
                         ))
                     ) : (
                         filteredFoodItems.map((item, id) => (
-                            <div key={id} className="box flex w-full">
+                            <div key={id} className="box flex w-full max-h-[260px]">
                                 <div
                                     style={{ backgroundImage: `url(${item.imageUrl})` }}
-                                    className="h-full w-[35%] bg-no-repeat bg-cover"
+                                    className="h-full w-[35%] bg-no-repeat bg-cover bg-center"
                                 ></div>
                                 <div className="group hover:text-black relative w-[65%] bg-white/5 shadow-md rounded-lg backdrop-blur filter px-5 py-7">
                                     <div className="absolute w-full h-full right-0 top-0 group-hover:visible invisible -z-10 rounded-lg bg-gradient-to-b from-first to-second"></div>

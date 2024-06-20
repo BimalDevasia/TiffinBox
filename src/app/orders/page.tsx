@@ -21,7 +21,7 @@ const Orders = () => {
     }, []);
 
     return (
-        <div className="container mx-auto py-8 bg-black h-full pt-20">
+        <div className=" px-16  py-8 bg-black h-screen w-screen pt-20">
             <h1 className="text-3xl font-bold mb-6 text-white">ORDERS</h1>
             {orders.length === 0 ? (
                 <p>You haven't placed any orders yet.</p>

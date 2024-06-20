@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 
 function Navbar() {
    var data = [
-    { id: "Home", link: "/home" },
+    { id: "Home", link: "/" },
     { id: "Menu", link: "menu" },
     { id: "Transactions", link: "transaction" },
     { id:"Cart",link:"cart"},
@@ -14,14 +14,14 @@ function Navbar() {
     { id: "About", link: "about" }
   ];
   const [activeItem, setActiveItem] = useState("/");
-
+  const [nonav,setnonav]=useState(false);
   const handleClick = (item: { id: string; link: string }) => {
     setActiveItem(item.id);
   }
 
   const pathname = usePathname();
   useEffect(()=>{
-    if(pathname==="/home")
+    if(pathname==="/")
       setActiveItem("Home")
     else if(pathname==="/menu")
       setActiveItem("Menu")
@@ -35,14 +35,20 @@ function Navbar() {
       setActiveItem("About")
     else
     setActiveItem("/")
+
+    if(pathname==="/admin")
+      setnonav(false)
+    else
+    setnonav(true)
   },[pathname]);
   
 
 
 
   return (
+    
     <>
-      <nav className='flex justify-center z-50'>
+    {nonav && <nav className='flex justify-center z-50'>
         <Image width={0} height={0} alt='' src={"/logo.svg"} className='absolute z-50 w-10 left-20 top-5'></Image>
         <div className='fixed flex gap-16 mt-5 z-50 text-[18px] text-white'>
           {data.map((item) => (
@@ -54,7 +60,8 @@ function Navbar() {
             </Link>
           ))}
         </div>
-      </nav>
+      </nav>}
+      
     </>
   )
 }
