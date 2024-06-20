@@ -10,11 +10,11 @@ export async function GET(request: Request) {
         const currentHour = new Date().getHours();
         let mealTime: 'Breakfast' | 'Lunch' | 'Tea' | 'Dinner';
 
-        if (currentHour >= 0 && currentHour < 12) {
+        if (currentHour >= 18 && currentHour < 24) {
             mealTime = 'Breakfast';
-        } else if (currentHour >= 12 && currentHour < 15) {
+        } else if (currentHour >= 0 && currentHour < 10) {
             mealTime = 'Lunch';
-        } else if (currentHour >= 15 && currentHour < 19) {
+        } else if (currentHour >= 10 && currentHour < 14) {
             mealTime = 'Tea';
         } else {
             mealTime = 'Dinner';
